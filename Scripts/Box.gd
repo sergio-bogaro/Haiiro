@@ -25,10 +25,16 @@ func move(dir):
 		return true
 	else:
 		var collider = ray.get_collider()
-		if collider.is_in_group('box'):
+		if collider.is_in_group('push'):
 			if (collider.move(dir)):
 				$Tween.start()
 				position += vector_pos
 				return true	
+		
+		elif collider.is_in_group('Open'):
+			$Tween.start()
+			position += vector_pos
+			return true	
+			
 		else:
 			return false

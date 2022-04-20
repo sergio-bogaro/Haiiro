@@ -1,128 +1,614 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scripts/Options.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Options/ControlVideoPannel.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/Options/ControlSongPannel.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Options/Options.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Options/ControlSongPannel.gd" type="Script" id=2]
+[ext_resource path="res://FonteMenu.tres" type="DynamicFont" id=4]
+[ext_resource path="res://TitleFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://OptionsMenu.tres" type="DynamicFont" id=6]
+[ext_resource path="res://FontAudio.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Themes/ButtonAudio.tres" type="StyleBox" id=8]
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="Options" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 2.0
-margin_right = 8.0
-margin_bottom = 2.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 532.0
-margin_top = 595.0
-margin_right = 748.0
-margin_bottom = 667.0
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.207843, 0.211765, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VideoButton" type="Button" parent="VBoxContainer"]
-margin_right = 216.0
-margin_bottom = 20.0
-text = "Video"
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -524.5
+margin_top = -320.0
+margin_right = 524.5
+margin_bottom = 320.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SongButton" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 216.0
-margin_bottom = 44.0
-text = "Audio"
+[node name="Label" type="Label" parent="VBox"]
+margin_left = 244.0
+margin_right = 804.0
+margin_bottom = 80.0
+size_flags_horizontal = 4
+custom_colors/font_color = Color( 0.929412, 0.886275, 0.835294, 1 )
+custom_colors/font_color_shadow = Color( 0.819608, 0.333333, 0.411765, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Options"
 
-[node name="BackButton" type="Button" parent="VBoxContainer"]
-margin_top = 48.0
-margin_right = 216.0
-margin_bottom = 68.0
-text = "Voltar"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+margin_top = 84.0
+margin_right = 1049.0
+margin_bottom = 508.0
+size_flags_vertical = 3
 
-[node name="VideoPannel" type="Control" parent="."]
-visible = false
-margin_right = 1269.0
-margin_bottom = 716.0
+[node name="VBoxVideo" type="VBoxContainer" parent="VBox/HBox"]
+margin_right = 494.0
+margin_bottom = 424.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBox/HBox/VBoxVideo"]
+margin_left = 157.0
+margin_right = 337.0
+margin_bottom = 75.0
+size_flags_horizontal = 4
+custom_colors/font_color = Color( 0.929412, 0.886275, 0.835294, 1 )
+custom_colors/font_color_shadow = Color( 0.819608, 0.333333, 0.411765, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 6 )
+text = "
+Video"
+
+[node name="FullScreen" type="HBoxContainer" parent="VBox/HBox/VBoxVideo"]
+margin_top = 95.0
+margin_right = 494.0
+margin_bottom = 129.0
+
+[node name="Label" type="Label" parent="VBox/HBox/VBoxVideo/FullScreen"]
+margin_right = 193.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 4 )
+text = "FullScrren"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBox/HBox/VBoxVideo/FullScreen"]
+margin_left = 197.0
+margin_right = 494.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="CheckButton" type="CheckBox" parent="VBox/HBox/VBoxVideo/FullScreen/HBoxContainer"]
+margin_left = 273.0
+margin_right = 297.0
+margin_bottom = 34.0
+size_flags_vertical = 3
+custom_styles/focus = SubResource( 7 )
+
+[node name="VSync" type="HBoxContainer" parent="VBox/HBox/VBoxVideo"]
+margin_top = 149.0
+margin_right = 494.0
+margin_bottom = 183.0
+
+[node name="Label" type="Label" parent="VBox/HBox/VBoxVideo/VSync"]
+margin_right = 112.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 4 )
+text = "VSync"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBox/HBox/VBoxVideo/VSync"]
+margin_left = 116.0
+margin_right = 494.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="CheckButton" type="CheckBox" parent="VBox/HBox/VBoxVideo/VSync/HBoxContainer"]
+margin_left = 354.0
+margin_right = 378.0
+margin_bottom = 34.0
+size_flags_vertical = 3
+custom_styles/focus = SubResource( 7 )
+
+[node name="Separator" type="HBoxContainer" parent="VBox/HBox"]
+margin_left = 498.0
+margin_right = 550.0
+margin_bottom = 424.0
+
+[node name="Label" type="Label" parent="VBox/HBox/Separator"]
+margin_top = 205.0
+margin_right = 52.0
+margin_bottom = 219.0
+text = "             "
+
+[node name="VBoxAudio" type="VBoxContainer" parent="VBox/HBox"]
+margin_left = 554.0
+margin_right = 1049.0
+margin_bottom = 424.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="VideoPannel"]
-margin_left = -8.0
-margin_top = -1.0
-margin_right = 1271.0
-margin_bottom = 722.0
+[node name="Label" type="Label" parent="VBox/HBox/VBoxAudio"]
+margin_left = 157.0
+margin_right = 337.0
+margin_bottom = 75.0
+size_flags_horizontal = 4
+custom_colors/font_color = Color( 0.929412, 0.886275, 0.835294, 1 )
+custom_colors/font_color_shadow = Color( 0.819608, 0.333333, 0.411765, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 6 )
+text = "
+Audio"
+
+[node name="Master" type="HBoxContainer" parent="VBox/HBox/VBoxAudio"]
+margin_top = 95.0
+margin_right = 495.0
+margin_bottom = 131.0
+
+[node name="Master" type="Label" parent="VBox/HBox/VBoxAudio/Master"]
+margin_top = 1.0
+margin_right = 259.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 4 )
+text = "Master Volume"
+
+[node name="HBoxMaster" type="HBoxContainer" parent="VBox/HBox/VBoxAudio/Master"]
+margin_left = 263.0
+margin_right = 495.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="MasterMinus" type="Button" parent="VBox/HBox/VBoxAudio/Master/HBoxMaster"]
+margin_left = 120.0
+margin_top = 10.0
+margin_right = 136.0
+margin_bottom = 26.0
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 1 )
+text = "-"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MasterVolume" type="Label" parent="VBox/HBox/VBoxAudio/Master/HBoxMaster"]
+margin_left = 140.0
+margin_right = 212.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 6 )
+text = "10"
+
+[node name="MasterPlus" type="Button" parent="VBox/HBox/VBoxAudio/Master/HBoxMaster"]
+margin_left = 216.0
+margin_top = 10.0
+margin_right = 232.0
+margin_bottom = 26.0
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 1 )
+text = "+"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Music" type="HBoxContainer" parent="VBox/HBox/VBoxAudio"]
+margin_top = 151.0
+margin_right = 495.0
+margin_bottom = 187.0
+
+[node name="Music" type="Label" parent="VBox/HBox/VBoxAudio/Music"]
+margin_top = 1.0
+margin_right = 233.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 4 )
+text = "Music Volume"
+
+[node name="HBoxMusic" type="HBoxContainer" parent="VBox/HBox/VBoxAudio/Music"]
+margin_left = 237.0
+margin_right = 495.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="MusicMinus" type="Button" parent="VBox/HBox/VBoxAudio/Music/HBoxMusic"]
+margin_left = 146.0
+margin_top = 10.0
+margin_right = 162.0
+margin_bottom = 26.0
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 1 )
+text = "-"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MusicVolume" type="Label" parent="VBox/HBox/VBoxAudio/Music/HBoxMusic"]
+margin_left = 166.0
+margin_right = 238.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 6 )
+text = "10"
+
+[node name="MusicPlus" type="Button" parent="VBox/HBox/VBoxAudio/Music/HBoxMusic"]
+margin_left = 242.0
+margin_top = 10.0
+margin_right = 258.0
+margin_bottom = 26.0
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 1 )
+text = "+"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="SFX" type="HBoxContainer" parent="VBox/HBox/VBoxAudio"]
+margin_top = 207.0
+margin_right = 495.0
+margin_bottom = 243.0
+
+[node name="SFX" type="Label" parent="VBox/HBox/VBoxAudio/SFX"]
+margin_top = 1.0
+margin_right = 198.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 4 )
+text = "SFX Volume"
+
+[node name="HBoxSFX" type="HBoxContainer" parent="VBox/HBox/VBoxAudio/SFX"]
+margin_left = 202.0
+margin_right = 495.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="SFXMinus" type="Button" parent="VBox/HBox/VBoxAudio/SFX/HBoxSFX"]
+margin_left = 181.0
+margin_top = 10.0
+margin_right = 197.0
+margin_bottom = 26.0
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 1 )
+text = "-"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="SFXVolume" type="Label" parent="VBox/HBox/VBoxAudio/SFX/HBoxSFX"]
+margin_left = 201.0
+margin_right = 273.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 6 )
+text = "10"
+
+[node name="SFXPlus" type="Button" parent="VBox/HBox/VBoxAudio/SFX/HBoxSFX"]
+margin_left = 277.0
+margin_top = 10.0
+margin_right = 293.0
+margin_bottom = 26.0
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 1 )
+text = "+"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HBoxBack" type="HBoxContainer" parent="VBox"]
+margin_left = 437.0
+margin_top = 512.0
+margin_right = 612.0
+margin_bottom = 640.0
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBox/HBoxBack"]
+margin_right = 175.0
+margin_bottom = 128.0
+
+[node name="ApplyButton" type="Button" parent="VBox/HBoxBack/VBoxContainer"]
+margin_right = 175.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 4 )
+text = "Apply"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" type="Button" parent="VideoPannel"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -115.5
-margin_top = -52.0
-margin_right = 114.5
-margin_bottom = -32.0
+[node name="ControlsButton" type="Button" parent="VBox/HBoxBack/VBoxContainer"]
+margin_top = 44.0
+margin_right = 175.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 4 )
+text = "Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="VBox/HBoxBack/VBoxContainer"]
+margin_top = 88.0
+margin_right = 175.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 4 )
 text = "Voltar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SongPannel" type="Control" parent="."]
+[node name="Controls" type="Control" parent="."]
 visible = false
-margin_right = 1269.0
-margin_bottom = 716.0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="SongPannel"]
-margin_left = -8.0
-margin_top = -1.0
-margin_right = 1271.0
-margin_bottom = 722.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BackButton" type="Button" parent="SongPannel"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -115.5
-margin_top = -52.0
-margin_right = 114.5
-margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.207843, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Controls"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -524.5
+margin_top = -280.0
+margin_right = 524.5
+margin_bottom = 280.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Controls/VBox"]
+margin_left = 204.0
+margin_right = 844.0
+margin_bottom = 80.0
+size_flags_horizontal = 4
+custom_colors/font_color = Color( 0.929412, 0.886275, 0.835294, 1 )
+custom_colors/font_color_shadow = Color( 0.819608, 0.333333, 0.411765, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 5 )
+text = "Controls"
+
+[node name="HBox" type="HBoxContainer" parent="Controls/VBox"]
+margin_top = 84.0
+margin_right = 1049.0
+margin_bottom = 516.0
+size_flags_vertical = 3
+
+[node name="VBoxComands" type="VBoxContainer" parent="Controls/VBox/HBox"]
+margin_right = 199.0
+margin_bottom = 432.0
+
+[node name="Label" type="Label" parent="Controls/VBox/HBox/VBoxComands"]
+margin_right = 199.0
+margin_bottom = 108.0
+custom_fonts/font = ExtResource( 4 )
+text = "
+Move UP 
+"
+
+[node name="Label3" type="Label" parent="Controls/VBox/HBox/VBoxComands"]
+margin_top = 112.0
+margin_right = 199.0
+margin_bottom = 183.0
+custom_fonts/font = ExtResource( 4 )
+text = "Move Left
+"
+
+[node name="Label2" type="Label" parent="Controls/VBox/HBox/VBoxComands"]
+margin_top = 187.0
+margin_right = 199.0
+margin_bottom = 258.0
+custom_fonts/font = ExtResource( 4 )
+text = "Move Down
+"
+
+[node name="Label4" type="Label" parent="Controls/VBox/HBox/VBoxComands"]
+margin_top = 262.0
+margin_right = 199.0
+margin_bottom = 333.0
+custom_fonts/font = ExtResource( 4 )
+text = "Move Right
+"
+
+[node name="VBoxComandsKeys" type="VBoxContainer" parent="Controls/VBox/HBox"]
+margin_left = 203.0
+margin_right = 540.0
+margin_bottom = 432.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys"]
+margin_right = 337.0
+margin_bottom = 108.0
+custom_fonts/font = ExtResource( 4 )
+text = " 
+ - W
+"
+
+[node name="Label3" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys"]
+margin_top = 112.0
+margin_right = 337.0
+margin_bottom = 183.0
+custom_fonts/font = ExtResource( 4 )
+text = " - A
+"
+
+[node name="Label2" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys"]
+margin_top = 187.0
+margin_right = 337.0
+margin_bottom = 258.0
+custom_fonts/font = ExtResource( 4 )
+text = " - S
+"
+
+[node name="Label4" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys"]
+margin_top = 262.0
+margin_right = 337.0
+margin_bottom = 333.0
+custom_fonts/font = ExtResource( 4 )
+text = " - D
+"
+
+[node name="VBoxComands 2" type="VBoxContainer" parent="Controls/VBox/HBox"]
+margin_left = 544.0
+margin_right = 708.0
+margin_bottom = 432.0
+
+[node name="Label5" type="Label" parent="Controls/VBox/HBox/VBoxComands 2"]
+margin_right = 164.0
+margin_bottom = 108.0
+custom_fonts/font = ExtResource( 4 )
+text = "
+Interact
+"
+
+[node name="Label7" type="Label" parent="Controls/VBox/HBox/VBoxComands 2"]
+margin_top = 112.0
+margin_right = 164.0
+margin_bottom = 183.0
+custom_fonts/font = ExtResource( 4 )
+text = "Pause
+"
+
+[node name="Label6" type="Label" parent="Controls/VBox/HBox/VBoxComands 2"]
+margin_top = 187.0
+margin_right = 164.0
+margin_bottom = 258.0
+custom_fonts/font = ExtResource( 4 )
+text = "Help
+"
+
+[node name="Label8" type="Label" parent="Controls/VBox/HBox/VBoxComands 2"]
+margin_top = 262.0
+margin_right = 164.0
+margin_bottom = 333.0
+custom_fonts/font = ExtResource( 4 )
+text = "Objetivo
+"
+
+[node name="VBoxComandsKeys 2" type="VBoxContainer" parent="Controls/VBox/HBox"]
+margin_left = 712.0
+margin_right = 1049.0
+margin_bottom = 432.0
+size_flags_horizontal = 3
+
+[node name="Label7" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys 2"]
+margin_right = 337.0
+margin_bottom = 108.0
+custom_fonts/font = ExtResource( 4 )
+text = "
+ - Space
+"
+
+[node name="Label9" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys 2"]
+margin_top = 112.0
+margin_right = 337.0
+margin_bottom = 183.0
+custom_fonts/font = ExtResource( 4 )
+text = " - Esc
+"
+
+[node name="Label8" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys 2"]
+margin_top = 187.0
+margin_right = 337.0
+margin_bottom = 258.0
+custom_fonts/font = ExtResource( 4 )
+text = " - H
+"
+
+[node name="Label10" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys 2"]
+margin_top = 262.0
+margin_right = 337.0
+margin_bottom = 333.0
+custom_fonts/font = ExtResource( 4 )
+text = " - O
+"
+
+[node name="HBoxBack" type="HBoxContainer" parent="Controls/VBox"]
+margin_left = 459.0
+margin_top = 520.0
+margin_right = 590.0
+margin_bottom = 560.0
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls/VBox/HBoxBack"]
+margin_right = 131.0
+margin_bottom = 40.0
+
+[node name="BackControls" type="Button" parent="Controls/VBox/HBoxBack/VBoxContainer"]
+margin_right = 131.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 4 )
 text = "Voltar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="SongPannel"]
-margin_left = 529.0
-margin_top = 328.0
-margin_right = 759.0
-margin_bottom = 328.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="VBoxContainer/VideoButton" to="." method="_on_VideoButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/SongButton" to="." method="_on_SongButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
-[connection signal="pressed" from="VideoPannel/BackButton" to="VideoPannel" method="_on_BackButton_pressed"]
-[connection signal="pressed" from="SongPannel/BackButton" to="SongPannel" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="VBox/HBox/VBoxAudio/Master/HBoxMaster/MasterMinus" to="VBox/HBox/VBoxAudio" method="_on_MasterMinus_pressed"]
+[connection signal="pressed" from="VBox/HBox/VBoxAudio/Master/HBoxMaster/MasterPlus" to="VBox/HBox/VBoxAudio" method="_on_MasterPlus_pressed"]
+[connection signal="pressed" from="VBox/HBox/VBoxAudio/Music/HBoxMusic/MusicMinus" to="VBox/HBox/VBoxAudio" method="_on_MusicMinus_pressed"]
+[connection signal="pressed" from="VBox/HBox/VBoxAudio/Music/HBoxMusic/MusicPlus" to="VBox/HBox/VBoxAudio" method="_on_MusicPlus_pressed"]
+[connection signal="pressed" from="VBox/HBox/VBoxAudio/SFX/HBoxSFX/SFXMinus" to="VBox/HBox/VBoxAudio" method="_on_SFXMinus_pressed"]
+[connection signal="pressed" from="VBox/HBox/VBoxAudio/SFX/HBoxSFX/SFXPlus" to="VBox/HBox/VBoxAudio" method="_on_SFXPlus_pressed"]
+[connection signal="pressed" from="VBox/HBoxBack/VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
+[connection signal="pressed" from="VBox/HBoxBack/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="Controls/VBox/HBoxBack/VBoxContainer/BackControls" to="." method="_on_BackControls_pressed"]
