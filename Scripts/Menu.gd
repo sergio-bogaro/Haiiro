@@ -7,7 +7,7 @@ func _on_StartButton_pressed():
 	get_tree().change_scene("res://Scenes/Levels/Level_1.tscn")
 	
 func _on_QuitButton_pressed():
-	get_tree().quit()
+	get_node("Confirm").show()
 
 func _on_OptionButton_pressed():
 	$Options.show()
