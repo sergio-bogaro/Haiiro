@@ -20,14 +20,10 @@ func move(dir):
 	var vector_pos = inputs[dir] * grid_size
 	ray.cast_to = vector_pos
 	match (inputs[dir]):
-		Vector2.DOWN:
-			$Player.frame = 0
-		Vector2.UP:
-			$Player.frame = 4
 		Vector2.LEFT:
-			$Player.frame = 8
+			$Player.flip_h = true
 		Vector2.RIGHT:
-			$Player.frame = 12
+			$Player.flip_h = false
 
 	ray.force_raycast_update()
 	$Tween.interpolate_property(

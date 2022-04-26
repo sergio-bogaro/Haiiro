@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://TitleFont.tres" type="DynamicFont" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://HAIIRO.jpg" type="Texture" id=4]
 [ext_resource path="res://Scenes/Options.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Options/Confirm.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Songs/Music/X2Download.com - Gwyn, Lord of Cinder (128 kbps).mp3" type="AudioStream" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -188,9 +189,10 @@ margin_bottom = 53.0
 custom_fonts/font = ExtResource( 3 )
 text = "Nao"
 
-[node name="Audio" type="Node" parent="."]
-
-[node name="Master" type="AudioStreamPlayer" parent="Audio"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+bus = "Music"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]

@@ -181,6 +181,66 @@ __meta__ = {
 [node name="Options" parent="Comands" instance=ExtResource( 13 )]
 visible = false
 
+[node name="Confirm" type="Control" parent="Comands"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Comands/Confirm"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.207843, 0.211765, 0.796078 )
+
+[node name="ColorRect2" type="ColorRect" parent="Comands/Confirm"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -95.0
+margin_right = 640.0
+margin_bottom = 114.0
+color = Color( 0.2, 0.207843, 0.211765, 1 )
+
+[node name="Label" type="Label" parent="Comands/Confirm/ColorRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -98.0
+custom_fonts/font = ExtResource( 14 )
+text = "
+Tem certeza que deseja sair ?"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Comands/Confirm/ColorRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 123.0
+margin_bottom = -33.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ConfirmQuit" type="Button" parent="Comands/Confirm/ColorRect2/HBoxContainer"]
+margin_left = 542.0
+margin_right = 609.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 14 )
+text = "Sim"
+
+[node name="Label" type="Label" parent="Comands/Confirm/ColorRect2/HBoxContainer"]
+margin_left = 613.0
+margin_top = 19.0
+margin_right = 653.0
+margin_bottom = 33.0
+text = "          "
+
+[node name="NoConfirmQuit" type="Button" parent="Comands/Confirm/ColorRect2/HBoxContainer"]
+margin_left = 657.0
+margin_right = 738.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 14 )
+text = "Nao"
+
 [node name="Goal" type="Sprite" parent="."]
 position = Vector2( 8, 56 )
 texture = ExtResource( 11 )
@@ -228,4 +288,6 @@ shape = SubResource( 4 )
 [connection signal="pressed" from="Comands/Pause/CenterContainer/VBoxContainer/ResumeButton" to="Comands/Pause" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="Comands/Pause/CenterContainer/VBoxContainer/OptionsButton" to="Comands/Pause" method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Comands/Pause/CenterContainer/VBoxContainer/QuitButton" to="Comands/Pause" method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Comands/Confirm/ColorRect2/HBoxContainer/ConfirmQuit" to="Comands/Pause" method="_on_ConfirmQuit_pressed"]
+[connection signal="pressed" from="Comands/Confirm/ColorRect2/HBoxContainer/NoConfirmQuit" to="Comands/Pause" method="_on_NoConfirmQuit_pressed"]
 [connection signal="body_entered" from="Goal/Area2D" to="Goal" method="_on_Area2D_body_entered"]

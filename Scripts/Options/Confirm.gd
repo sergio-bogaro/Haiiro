@@ -1,7 +1,6 @@
 extends Control
 
 
-
 func _on_ConfirmQuit_pressed():
 	get_tree().quit()
 

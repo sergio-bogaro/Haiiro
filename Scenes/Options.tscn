@@ -609,6 +609,7 @@ __meta__ = {
 [connection signal="pressed" from="VBox/HBox/VBoxAudio/Music/HBoxMusic/MusicPlus" to="VBox/HBox/VBoxAudio" method="_on_MusicPlus_pressed"]
 [connection signal="pressed" from="VBox/HBox/VBoxAudio/SFX/HBoxSFX/SFXMinus" to="VBox/HBox/VBoxAudio" method="_on_SFXMinus_pressed"]
 [connection signal="pressed" from="VBox/HBox/VBoxAudio/SFX/HBoxSFX/SFXPlus" to="VBox/HBox/VBoxAudio" method="_on_SFXPlus_pressed"]
+[connection signal="pressed" from="VBox/HBoxBack/VBoxContainer/ApplyButton" to="." method="_on_ApplyButton_pressed"]
 [connection signal="pressed" from="VBox/HBoxBack/VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
 [connection signal="pressed" from="VBox/HBoxBack/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="Controls/VBox/HBoxBack/VBoxContainer/BackControls" to="." method="_on_BackControls_pressed"]
