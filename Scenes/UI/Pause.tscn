@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://FonteMenu.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/UI/Pause.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/Options.tscn" type="PackedScene" id=3]
+
+[node name="Pause" type="CanvasLayer"]
+pause_mode = 2
+layer = 5
+script = ExtResource( 2 )
+
+[node name="PauseScript" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="ColorRect" parent="PauseScript"]
+modulate = Color( 0.286275, 0.286275, 0.286275, 0.564706 )
+self_modulate = Color( 0.219608, 0.164706, 0.164706, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.254902, 0.254902, 0.254902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseScript"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 96.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScript/HBoxContainer"]
+margin_left = 539.0
+margin_right = 740.0
+margin_bottom = 624.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" type="Button" parent="PauseScript/HBoxContainer/VBoxContainer"]
+margin_right = 201.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Continuar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsButton" type="Button" parent="PauseScript/HBoxContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 201.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 1 )
+text = "Opções"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="PauseScript/HBoxContainer/VBoxContainer"]
+margin_top = 88.0
+margin_right = 201.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 1 )
+text = "Sair"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PauseScript"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 256.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScript/HBoxContainer2"]
+margin_left = 518.0
+margin_right = 761.0
+margin_bottom = 464.0
+size_flags_vertical = 3
+
+[node name="RulesLabel" type="Label" parent="PauseScript/HBoxContainer2/VBoxContainer"]
+margin_right = 243.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 1 )
+text = "Haiiro = Você"
+
+[node name="Options" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="mouse_entered" from="PauseScript/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_mouse_entered"]
+[connection signal="pressed" from="PauseScript/HBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="mouse_entered" from="PauseScript/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_mouse_entered"]
+[connection signal="pressed" from="PauseScript/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="mouse_entered" from="PauseScript/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_mouse_entered"]
+[connection signal="pressed" from="PauseScript/HBoxContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

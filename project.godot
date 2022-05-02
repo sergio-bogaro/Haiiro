@@ -11,8 +11,16 @@ config_version=4
 [application]
 
 config/name="Haiiro"
-run/main_scene="res://Scenes/Menu.tscn"
-config/icon="res://Assets/player.png"
+run/main_scene="res://Scenes/GameThings/Menu.tscn"
+config/icon="res://Assets/Objects/Logo.png"
+
+[autoload]
+
+Fade="*res://Scenes/UI/Fade.tscn"
+TextBox="*res://Scenes/UI/TextBox.tscn"
+Pause="*res://Scenes/UI/Pause.tscn"
+Confirm="*res://Scenes/UI/Confirm.tscn"
+SoundPlayer="*res://Scenes/GameThings/SoundPlayer.tscn"
 
 [display]
 

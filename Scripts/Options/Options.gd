@@ -1,19 +1,70 @@
 extends Control
 
+var save_path = "user://config.dat"
+var savedData = {}
+
 onready var masterVol = get_node("VBox/HBox/VBoxAudio/Master/HBoxMaster/MasterVolume")
 onready var musicVol = get_node("VBox/HBox/VBoxAudio/Music/HBoxMusic/MusicVolume")
 onready var sfxVol = get_node("VBox/HBox/VBoxAudio/SFX/HBoxSFX/SFXVolume")
+onready var fullScreen = get_node("VBox/HBox/VBoxVideo/FullScreen/HBoxContainer/CheckButton")
+onready var vSync = get_node("VBox/HBox/VBoxVideo/VSync/HBoxContainer/CheckButton")
+
+func _ready():
+	var file = File.new()
+	var error = file.open(save_path, File.READ)
+	if error == OK:
+		savedData = file.get_var()
+		file.close()
+		masterVol.text = savedData.masterVol
+		musicVol.text = savedData.musicVol
+		sfxVol.text = savedData.sfxVol
+		fullScreen.pressed = savedData.fullScreen
+		vSync.pressed = savedData.vSync
+		changeSettings()
+	$VBox/HBox/VBoxAudio.setValues()
 
 func _on_BackButton_pressed():
+	SoundPlayer.clickSound()
+	Fade.fade()
+	yield(get_tree().create_timer(0.5), "timeout")
 	self.hide()
 
+func _on_BackButton_mouse_entered():
+	SoundPlayer.hoverSound()
+
 func _on_ControlsButton_pressed():
+	SoundPlayer.clickSound()
 	$Controls.show()
 
+func _on_ControlsButton_mouse_entered():
+	SoundPlayer.hoverSound()
+
 func _on_BackControls_pressed():
+	SoundPlayer.clickSound()
 	$Controls.hide()
 
+func _on_BackControls_mouse_entered():
+	SoundPlayer.hoverSound()
+
 func _on_ApplyButton_pressed():
+	SoundPlayer.clickSound()
+	changeSettings()	
+	savedData['masterVol'] = masterVol.text
+	savedData['musicVol'] = musicVol.text
+	savedData['sfxVol'] = sfxVol.text
+	savedData['fullScreen'] = fullScreen.pressed
+	savedData['vSync'] = vSync.pressed
+	var file = File.new()
+	var error = file.open(save_path, File.WRITE)
+	if error == OK:
+		print(savedData)
+		file.store_var(savedData)
+		file.close()
+
+func _on_ApplyButton_mouse_entered():
+	SoundPlayer.hoverSound()
+
+func changeSettings():
 	match(int(masterVol.text)):
 		10:
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), 0)
@@ -85,3 +136,14 @@ func _on_ApplyButton_pressed():
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), -46)
 		00:
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), -80)
+
+	if fullScreen.pressed == true:
+		OS.window_fullscreen = true
+	else:
+		OS.window_fullscreen = false
+		
+	if vSync.pressed == true:
+		OS.vsync_enabled == true
+	else:
+		OS.vsync_enabled == false
+

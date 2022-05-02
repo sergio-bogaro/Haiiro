@@ -9,12 +9,13 @@ var masterVol
 var musicVol
 var sfxVol
 
-func _ready():
+func setValues():
 	masterVol = int(masterVolLabel.text)
 	musicVol = int(musicVolLabel.text)
 	sfxVol = int(sfxVolLabel.text)
 
 func _on_MasterMinus_pressed():
+	SoundPlayer.clickSound()
 	masterVol -= 1
 	if masterVol <= 0:
 		masterVol = 0
@@ -23,6 +24,7 @@ func _on_MasterMinus_pressed():
 		masterVolLabel.text = "0" + str(masterVol)
 
 func _on_MasterPlus_pressed():
+	SoundPlayer.clickSound()
 	masterVol += 1
 	if masterVol >= 10:
 		masterVol = 10
@@ -31,6 +33,7 @@ func _on_MasterPlus_pressed():
 		masterVolLabel.text = "0" + str(masterVol)
 
 func _on_MusicMinus_pressed():
+	SoundPlayer.clickSound()
 	musicVol -= 1
 	if musicVol <= 0:
 		musicVol = 0
@@ -39,6 +42,7 @@ func _on_MusicMinus_pressed():
 		musicVolLabel.text = "0" + str(musicVol)
 
 func _on_MusicPlus_pressed():
+	SoundPlayer.clickSound()
 	musicVol += 1
 	if musicVol >= 10:
 		musicVol = 10
@@ -47,6 +51,7 @@ func _on_MusicPlus_pressed():
 		musicVolLabel.text = "0" + str(musicVol)
 
 func _on_SFXMinus_pressed():
+	SoundPlayer.clickSound()
 	sfxVol -= 1
 	if sfxVol <= 0:
 		sfxVol = 0
@@ -55,6 +60,7 @@ func _on_SFXMinus_pressed():
 		sfxVolLabel.text = "0" + str(sfxVol)
 
 func _on_SFXPlus_pressed():
+	SoundPlayer.clickSound()
 	sfxVol += 1
 	if sfxVol >= 10:
 		sfxVol = 10

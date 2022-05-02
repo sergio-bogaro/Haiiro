@@ -9,11 +9,11 @@
 [ext_resource path="res://Assets/Blocks/Valor/Voce - Block.png" type="Texture" id=7]
 [ext_resource path="res://player.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=9]
-[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/GameThings/Camera.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/GameThings/Box.tscn" type="PackedScene" id=11]
 [ext_resource path="res://wall.png" type="Texture" id=12]
 [ext_resource path="res://Assets/goal.png" type="Texture" id=13]
-[ext_resource path="res://Scenes/Comands.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/UI/Comands.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 8 )

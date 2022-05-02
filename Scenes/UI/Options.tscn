@@ -17,6 +17,7 @@
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="Options" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -27,6 +28,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0.2, 0.207843, 0.211765, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -46,26 +48,27 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBox"]
-margin_left = 244.0
-margin_right = 804.0
-margin_bottom = 80.0
+margin_left = 102.0
+margin_right = 947.0
+margin_bottom = 133.0
 size_flags_horizontal = 4
 custom_colors/font_color = Color( 0.929412, 0.886275, 0.835294, 1 )
 custom_colors/font_color_shadow = Color( 0.819608, 0.333333, 0.411765, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 2
 custom_fonts/font = ExtResource( 5 )
-text = "Options"
+text = "Configurações
+"
 
 [node name="HBox" type="HBoxContainer" parent="VBox"]
-margin_top = 84.0
+margin_top = 137.0
 margin_right = 1049.0
 margin_bottom = 508.0
 size_flags_vertical = 3
 
 [node name="VBoxVideo" type="VBoxContainer" parent="VBox/HBox"]
 margin_right = 494.0
-margin_bottom = 424.0
+margin_bottom = 371.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -91,21 +94,21 @@ margin_right = 494.0
 margin_bottom = 129.0
 
 [node name="Label" type="Label" parent="VBox/HBox/VBoxVideo/FullScreen"]
-margin_right = 193.0
+margin_right = 187.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 4 )
-text = "FullScrren"
+text = "Tela Cheia"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBox/HBox/VBoxVideo/FullScreen"]
-margin_left = 197.0
+margin_left = 191.0
 margin_right = 494.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="CheckButton" type="CheckBox" parent="VBox/HBox/VBoxVideo/FullScreen/HBoxContainer"]
-margin_left = 273.0
-margin_right = 297.0
+margin_left = 279.0
+margin_right = 303.0
 margin_bottom = 34.0
 size_flags_vertical = 3
 custom_styles/focus = SubResource( 7 )
@@ -138,18 +141,18 @@ custom_styles/focus = SubResource( 7 )
 [node name="Separator" type="HBoxContainer" parent="VBox/HBox"]
 margin_left = 498.0
 margin_right = 550.0
-margin_bottom = 424.0
+margin_bottom = 371.0
 
 [node name="Label" type="Label" parent="VBox/HBox/Separator"]
-margin_top = 205.0
+margin_top = 178.0
 margin_right = 52.0
-margin_bottom = 219.0
+margin_bottom = 192.0
 text = "             "
 
 [node name="VBoxAudio" type="VBoxContainer" parent="VBox/HBox"]
 margin_left = 554.0
 margin_right = 1049.0
-margin_bottom = 424.0
+margin_bottom = 371.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -180,22 +183,22 @@ margin_bottom = 131.0
 
 [node name="Master" type="Label" parent="VBox/HBox/VBoxAudio/Master"]
 margin_top = 1.0
-margin_right = 259.0
+margin_right = 301.0
 margin_bottom = 35.0
 custom_fonts/font = ExtResource( 4 )
-text = "Master Volume"
+text = "Volume Principal"
 
 [node name="HBoxMaster" type="HBoxContainer" parent="VBox/HBox/VBoxAudio/Master"]
-margin_left = 263.0
+margin_left = 305.0
 margin_right = 495.0
 margin_bottom = 36.0
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="MasterMinus" type="Button" parent="VBox/HBox/VBoxAudio/Master/HBoxMaster"]
-margin_left = 120.0
+margin_left = 78.0
 margin_top = 10.0
-margin_right = 136.0
+margin_right = 94.0
 margin_bottom = 26.0
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
@@ -209,16 +212,16 @@ __meta__ = {
 }
 
 [node name="MasterVolume" type="Label" parent="VBox/HBox/VBoxAudio/Master/HBoxMaster"]
-margin_left = 140.0
-margin_right = 212.0
+margin_left = 98.0
+margin_right = 170.0
 margin_bottom = 36.0
 custom_fonts/font = ExtResource( 6 )
 text = "10"
 
 [node name="MasterPlus" type="Button" parent="VBox/HBox/VBoxAudio/Master/HBoxMaster"]
-margin_left = 216.0
+margin_left = 174.0
 margin_top = 10.0
-margin_right = 232.0
+margin_right = 190.0
 margin_bottom = 26.0
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
@@ -238,22 +241,22 @@ margin_bottom = 187.0
 
 [node name="Music" type="Label" parent="VBox/HBox/VBoxAudio/Music"]
 margin_top = 1.0
-margin_right = 233.0
+margin_right = 313.0
 margin_bottom = 35.0
 custom_fonts/font = ExtResource( 4 )
-text = "Music Volume"
+text = "Volume da Musica"
 
 [node name="HBoxMusic" type="HBoxContainer" parent="VBox/HBox/VBoxAudio/Music"]
-margin_left = 237.0
+margin_left = 317.0
 margin_right = 495.0
 margin_bottom = 36.0
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="MusicMinus" type="Button" parent="VBox/HBox/VBoxAudio/Music/HBoxMusic"]
-margin_left = 146.0
+margin_left = 66.0
 margin_top = 10.0
-margin_right = 162.0
+margin_right = 82.0
 margin_bottom = 26.0
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
@@ -267,16 +270,16 @@ __meta__ = {
 }
 
 [node name="MusicVolume" type="Label" parent="VBox/HBox/VBoxAudio/Music/HBoxMusic"]
-margin_left = 166.0
-margin_right = 238.0
+margin_left = 86.0
+margin_right = 158.0
 margin_bottom = 36.0
 custom_fonts/font = ExtResource( 6 )
 text = "10"
 
 [node name="MusicPlus" type="Button" parent="VBox/HBox/VBoxAudio/Music/HBoxMusic"]
-margin_left = 242.0
+margin_left = 162.0
 margin_top = 10.0
-margin_right = 258.0
+margin_right = 178.0
 margin_bottom = 26.0
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
@@ -296,22 +299,22 @@ margin_bottom = 243.0
 
 [node name="SFX" type="Label" parent="VBox/HBox/VBoxAudio/SFX"]
 margin_top = 1.0
-margin_right = 198.0
+margin_right = 344.0
 margin_bottom = 35.0
 custom_fonts/font = ExtResource( 4 )
-text = "SFX Volume"
+text = "Volume dos Efeitos"
 
 [node name="HBoxSFX" type="HBoxContainer" parent="VBox/HBox/VBoxAudio/SFX"]
-margin_left = 202.0
+margin_left = 348.0
 margin_right = 495.0
 margin_bottom = 36.0
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="SFXMinus" type="Button" parent="VBox/HBox/VBoxAudio/SFX/HBoxSFX"]
-margin_left = 181.0
+margin_left = 35.0
 margin_top = 10.0
-margin_right = 197.0
+margin_right = 51.0
 margin_bottom = 26.0
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
@@ -325,16 +328,16 @@ __meta__ = {
 }
 
 [node name="SFXVolume" type="Label" parent="VBox/HBox/VBoxAudio/SFX/HBoxSFX"]
-margin_left = 201.0
-margin_right = 273.0
+margin_left = 55.0
+margin_right = 127.0
 margin_bottom = 36.0
 custom_fonts/font = ExtResource( 6 )
 text = "10"
 
 [node name="SFXPlus" type="Button" parent="VBox/HBox/VBoxAudio/SFX/HBoxSFX"]
-margin_left = 277.0
+margin_left = 131.0
 margin_top = 10.0
-margin_right = 293.0
+margin_right = 147.0
 margin_bottom = 26.0
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
@@ -348,38 +351,38 @@ __meta__ = {
 }
 
 [node name="HBoxBack" type="HBoxContainer" parent="VBox"]
-margin_left = 437.0
+margin_left = 427.0
 margin_top = 512.0
-margin_right = 612.0
+margin_right = 622.0
 margin_bottom = 640.0
 size_flags_horizontal = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBox/HBoxBack"]
-margin_right = 175.0
+margin_right = 195.0
 margin_bottom = 128.0
 
 [node name="ApplyButton" type="Button" parent="VBox/HBoxBack/VBoxContainer"]
-margin_right = 175.0
+margin_right = 195.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 4 )
-text = "Apply"
+text = "Aplicar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ControlsButton" type="Button" parent="VBox/HBoxBack/VBoxContainer"]
 margin_top = 44.0
-margin_right = 175.0
+margin_right = 195.0
 margin_bottom = 84.0
 custom_fonts/font = ExtResource( 4 )
-text = "Controls"
+text = "Controles"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BackButton" type="Button" parent="VBox/HBoxBack/VBoxContainer"]
 margin_top = 88.0
-margin_right = 175.0
+margin_right = 195.0
 margin_bottom = 128.0
 custom_fonts/font = ExtResource( 4 )
 text = "Voltar"
@@ -417,26 +420,26 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Controls/VBox"]
-margin_left = 204.0
-margin_right = 844.0
-margin_bottom = 80.0
+margin_left = 232.0
+margin_right = 817.0
+margin_bottom = 65.0
 size_flags_horizontal = 4
 custom_colors/font_color = Color( 0.929412, 0.886275, 0.835294, 1 )
 custom_colors/font_color_shadow = Color( 0.819608, 0.333333, 0.411765, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 2
 custom_fonts/font = ExtResource( 5 )
-text = "Controls"
+text = "Controles"
 
 [node name="HBox" type="HBoxContainer" parent="Controls/VBox"]
-margin_top = 84.0
+margin_top = 69.0
 margin_right = 1049.0
 margin_bottom = 516.0
 size_flags_vertical = 3
 
 [node name="VBoxComands" type="VBoxContainer" parent="Controls/VBox/HBox"]
 margin_right = 199.0
-margin_bottom = 432.0
+margin_bottom = 447.0
 
 [node name="Label" type="Label" parent="Controls/VBox/HBox/VBoxComands"]
 margin_right = 199.0
@@ -472,12 +475,12 @@ text = "Move Right
 
 [node name="VBoxComandsKeys" type="VBoxContainer" parent="Controls/VBox/HBox"]
 margin_left = 203.0
-margin_right = 540.0
-margin_bottom = 432.0
+margin_right = 534.0
+margin_bottom = 447.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys"]
-margin_right = 337.0
+margin_right = 331.0
 margin_bottom = 108.0
 custom_fonts/font = ExtResource( 4 )
 text = " 
@@ -486,7 +489,7 @@ text = "
 
 [node name="Label3" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys"]
 margin_top = 112.0
-margin_right = 337.0
+margin_right = 331.0
 margin_bottom = 183.0
 custom_fonts/font = ExtResource( 4 )
 text = " - A
@@ -494,7 +497,7 @@ text = " - A
 
 [node name="Label2" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys"]
 margin_top = 187.0
-margin_right = 337.0
+margin_right = 331.0
 margin_bottom = 258.0
 custom_fonts/font = ExtResource( 4 )
 text = " - S
@@ -502,57 +505,57 @@ text = " - S
 
 [node name="Label4" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys"]
 margin_top = 262.0
-margin_right = 337.0
+margin_right = 331.0
 margin_bottom = 333.0
 custom_fonts/font = ExtResource( 4 )
 text = " - D
 "
 
 [node name="VBoxComands 2" type="VBoxContainer" parent="Controls/VBox/HBox"]
-margin_left = 544.0
-margin_right = 708.0
-margin_bottom = 432.0
+margin_left = 538.0
+margin_right = 713.0
+margin_bottom = 447.0
 
 [node name="Label5" type="Label" parent="Controls/VBox/HBox/VBoxComands 2"]
-margin_right = 164.0
+margin_right = 175.0
 margin_bottom = 108.0
 custom_fonts/font = ExtResource( 4 )
 text = "
-Interact
+Interagir
 "
 
 [node name="Label7" type="Label" parent="Controls/VBox/HBox/VBoxComands 2"]
 margin_top = 112.0
-margin_right = 164.0
+margin_right = 175.0
 margin_bottom = 183.0
 custom_fonts/font = ExtResource( 4 )
-text = "Pause
+text = "Pausar
 "
 
 [node name="Label6" type="Label" parent="Controls/VBox/HBox/VBoxComands 2"]
 margin_top = 187.0
-margin_right = 164.0
+margin_right = 175.0
 margin_bottom = 258.0
 custom_fonts/font = ExtResource( 4 )
-text = "Help
+text = "Ajuda
 "
 
 [node name="Label8" type="Label" parent="Controls/VBox/HBox/VBoxComands 2"]
 margin_top = 262.0
-margin_right = 164.0
+margin_right = 175.0
 margin_bottom = 333.0
 custom_fonts/font = ExtResource( 4 )
 text = "Objetivo
 "
 
 [node name="VBoxComandsKeys 2" type="VBoxContainer" parent="Controls/VBox/HBox"]
-margin_left = 712.0
+margin_left = 717.0
 margin_right = 1049.0
-margin_bottom = 432.0
+margin_bottom = 447.0
 size_flags_horizontal = 3
 
 [node name="Label7" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys 2"]
-margin_right = 337.0
+margin_right = 332.0
 margin_bottom = 108.0
 custom_fonts/font = ExtResource( 4 )
 text = "
@@ -561,7 +564,7 @@ text = "
 
 [node name="Label9" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys 2"]
 margin_top = 112.0
-margin_right = 337.0
+margin_right = 332.0
 margin_bottom = 183.0
 custom_fonts/font = ExtResource( 4 )
 text = " - Esc
@@ -569,7 +572,7 @@ text = " - Esc
 
 [node name="Label8" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys 2"]
 margin_top = 187.0
-margin_right = 337.0
+margin_right = 332.0
 margin_bottom = 258.0
 custom_fonts/font = ExtResource( 4 )
 text = " - H
@@ -577,7 +580,7 @@ text = " - H
 
 [node name="Label10" type="Label" parent="Controls/VBox/HBox/VBoxComandsKeys 2"]
 margin_top = 262.0
-margin_right = 337.0
+margin_right = 332.0
 margin_bottom = 333.0
 custom_fonts/font = ExtResource( 4 )
 text = " - O
@@ -609,7 +612,11 @@ __meta__ = {
 [connection signal="pressed" from="VBox/HBox/VBoxAudio/Music/HBoxMusic/MusicPlus" to="VBox/HBox/VBoxAudio" method="_on_MusicPlus_pressed"]
 [connection signal="pressed" from="VBox/HBox/VBoxAudio/SFX/HBoxSFX/SFXMinus" to="VBox/HBox/VBoxAudio" method="_on_SFXMinus_pressed"]
 [connection signal="pressed" from="VBox/HBox/VBoxAudio/SFX/HBoxSFX/SFXPlus" to="VBox/HBox/VBoxAudio" method="_on_SFXPlus_pressed"]
+[connection signal="mouse_entered" from="VBox/HBoxBack/VBoxContainer/ApplyButton" to="." method="_on_ApplyButton_mouse_entered"]
 [connection signal="pressed" from="VBox/HBoxBack/VBoxContainer/ApplyButton" to="." method="_on_ApplyButton_pressed"]
+[connection signal="mouse_entered" from="VBox/HBoxBack/VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_mouse_entered"]
 [connection signal="pressed" from="VBox/HBoxBack/VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
+[connection signal="mouse_entered" from="VBox/HBoxBack/VBoxContainer/BackButton" to="." method="_on_BackButton_mouse_entered"]
 [connection signal="pressed" from="VBox/HBoxBack/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="mouse_entered" from="Controls/VBox/HBoxBack/VBoxContainer/BackControls" to="." method="_on_BackControls_mouse_entered"]
 [connection signal="pressed" from="Controls/VBox/HBoxBack/VBoxContainer/BackControls" to="." method="_on_BackControls_pressed"]

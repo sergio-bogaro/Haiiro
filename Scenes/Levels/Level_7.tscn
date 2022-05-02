@@ -2,18 +2,18 @@
 
 [ext_resource path="res://Assets/goal.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/GameThings/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Levels/Level_5.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=5]
 [ext_resource path="res://icon.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/GameThings/Box.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Fonte_objetivo.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Blocks/Sinais/Igual - Block.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Blocks/Sprite - Block/Haiiro - Block.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Blocks/Valor/Voce - Block.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Blocks/Sprite - Block/Caixa - Block.jpg" type="Texture" id=13]
-[ext_resource path="res://Scenes/Comands.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/UI/Comands.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 8 )

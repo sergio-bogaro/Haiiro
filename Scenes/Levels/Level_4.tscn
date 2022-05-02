@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GameThings/Camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Levels/Level_3.gd" type="Script" id=3]
 [ext_resource path="res://wall.png" type="Texture" id=4]
@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Blocks/Sinais/Igual - Block.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Blocks/Sprite - Block/Haiiro - Block.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Blocks/Valor/Voce - Block.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/Comands.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/UI/Comands.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6, 6 )
