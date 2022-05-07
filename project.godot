@@ -21,6 +21,7 @@ TextBox="*res://Scenes/UI/TextBox.tscn"
 Pause="*res://Scenes/UI/Pause.tscn"
 Confirm="*res://Scenes/UI/Confirm.tscn"
 SoundPlayer="*res://Scenes/GameThings/SoundPlayer.tscn"
+MusicPlayer="*res://Scenes/GameThings/MusicPlayer.tscn"
 
 [display]
 

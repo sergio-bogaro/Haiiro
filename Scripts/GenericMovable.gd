@@ -35,11 +35,4 @@ func move(dir):
 			if (collider.move(dir)):
 				$Tween.start()
 				position += vector_pos
-				
-		elif collider.is_in_group('Pass'):
-			$Tween.start()
-			position += vector_pos
-		
-		elif collider.is_in_group('Stop'):
-			pass
 		

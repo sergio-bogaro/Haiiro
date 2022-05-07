@@ -5,6 +5,7 @@ var savedData = ""
 var currentLevel = ''
 
 func _ready():
+	MusicPlayer.menuMusicPlay()
 	var file = File.new()
 	var error = file.open(save_path, File.READ)
 	if error == OK:
@@ -14,11 +15,12 @@ func _ready():
 		file.close()
 
 func _on_StartButton_pressed():
-	SoundPlayer.clickSound()
 	if currentLevel != '':
+		SoundPlayer.clickSound()
 		Confirm.showConfirmation('newGame')
 	else:
-		Fade.sceneFade('res://Scenes/GameLevels/Level-1.tscn')
+		Fade.sceneFadeMenu('res://Scenes/GameLevels/Level_1.tscn', get_tree().current_scene.name)
+		SoundPlayer.startSound()
 
 func _on_StartButton_mouse_entered():
 	SoundPlayer.hoverSound()
@@ -40,8 +42,9 @@ func _on_OptionButton_mouse_entered():
 	SoundPlayer.hoverSound()
 
 func _on_ContinueButton_pressed():
-	SoundPlayer.clickSound()
-	Fade.sceneFade(currentLevel)
+	Fade.sceneFadeMenu(currentLevel, get_tree().current_scene.name)
+	SoundPlayer.startSound()
 
 func _on_ContinueButton_mouse_entered():
-	SoundPlayer.hoverSound()
+	if $VBoxContainer/HBoxContainer/VBoxContainer/ContinueButton.disabled == false:
+		SoundPlayer.hoverSound()

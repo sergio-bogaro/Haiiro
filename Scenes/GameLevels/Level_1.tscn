@@ -1,0 +1,284 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GameThings/Goal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameThings/BaseLevel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/GameLevels/Level-1.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/GenericMovable.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Objects/Sem Fundo.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[node name="Level_1" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="BaseLevel" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 8 )
+
+[node name="HouseWalls" type="Node" parent="."]
+
+[node name="GenericObject" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 160, 8 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject"]
+
+[node name="GenericObject7" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 96, 8 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject7"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 168
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject7"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject7"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject7"]
+
+[node name="GenericObject8" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 96, 24 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject8"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 168
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject8"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject8"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject8"]
+
+[node name="GenericObject9" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 96, 40 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject9"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 168
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject9"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject9"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject9"]
+
+[node name="GenericObject2" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 160, 24 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject2"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject2"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject2"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject2"]
+
+[node name="GenericObject3" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 160, 40 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject3"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject3"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject3"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject3"]
+
+[node name="GenericObject4" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 144, 8 )
+rotation = -1.5708
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject4"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject4"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject4"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject4"]
+
+[node name="GenericObject5" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 128, 8 )
+rotation = -1.5708
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject5"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject5"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject5"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject5"]
+
+[node name="GenericObject6" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 112, 8 )
+rotation = -1.5708
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject6"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject6"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject6"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject6"]
+
+[node name="GenericObject10" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 128, 56 )
+rotation = 1.5708
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject10"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject10"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject10"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject10"]
+
+[node name="GenericObject11" type="KinematicBody2D" parent="HouseWalls" groups=["Stop"]]
+position = Vector2( 160, 56 )
+rotation = 1.5708
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="HouseWalls/GenericObject11"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 167
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HouseWalls/GenericObject11"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="HouseWalls/GenericObject11"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="HouseWalls/GenericObject11"]
+
+[node name="Goal" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 120, 40 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_right = 106.0
+margin_bottom = 128.0
+text = "Haiiro = Vc
+Parede = Pare
+
+Objetivo:
+	Sair da casa"
+autowrap = true
+clip_text = true

@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/goal.png" type="Texture" id=1]
 [ext_resource path="res://wall.png" type="Texture" id=2]
 [ext_resource path="res://Fonte_objetivo.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/UI/Comands.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GameThings/Camera.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/Goal.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6, 6 )
@@ -29,7 +28,6 @@ b = Vector2( 0, 184 )
 position = Vector2( 8, 8 )
 rotation = 1.5708
 texture = ExtResource( 1 )
-script = ExtResource( 7 )
 
 [node name="Area2D" type="Area2D" parent="Goal2"]
 

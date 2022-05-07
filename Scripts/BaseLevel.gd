@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var gameCamera = get_node("Camera")
+
 var save_path = "user://save.dat"
 var savedData = {}
 
@@ -21,5 +23,6 @@ func _input(event):
 		get_tree().reload_current_scene()
 		
 	if event.is_action_pressed("ui_cancel"):
-		if TextBox.textboxContainer.visible == false:
+		if (TextBox.textboxContainer.visible == false && Confirm.confirmNode.visible == false):
 			Pause.apareceSome()
+			

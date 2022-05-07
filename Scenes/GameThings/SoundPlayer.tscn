@@ -1,16 +1,52 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/Songs/SFX/ButtonClick.ogg" type="AudioStream" id=1]
-[ext_resource path="res://Assets/Songs/SFX/ButtonHover.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Sounds/SFX/ButtonClick.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Sounds/SFX/TextBox.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scripts/GameBasics/AudioPlayer.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sounds/SFX/EnterGame.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/SFX/OpenPauseMenu.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sounds/SFX/LevelComplete.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sounds/SFX/TextBox - Next .mp3" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sounds/SFX/ButtonHover.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sounds/SFX/Retro FootStep Mud 01.wav" type="AudioStream" id=9]
 
 [node name="SoundPlayer" type="Node"]
+pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="ButtonHover" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 8 )
+volume_db = -5.0
 bus = "SFX"
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+bus = "SFX"
+
+[node name="EnterLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[node name="LevelComplete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "SFX"
+
+[node name="PauseMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -8.0
+bus = "SFX"
+
+[node name="TextWriting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -10.0
+bus = "SFX"
+
+[node name="TextChange" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+bus = "SFX"
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
 bus = "SFX"

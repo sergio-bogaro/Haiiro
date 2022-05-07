@@ -7,12 +7,13 @@
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Levels/Level_8.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Butt0n.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Blocks/Sinais/Igual - Block.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Blocks/Valor/Voce - Block.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Blocks/Sprite - Block/Haiiro - Block.png" type="Texture" id=11]
 [ext_resource path="res://Fonte_objetivo.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Scenes/GameThings/Camera.tscn" type="PackedScene" id=13]
+
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6, 6 )

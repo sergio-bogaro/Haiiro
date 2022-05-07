@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Levels/Level_4.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GameThings/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Porta_anim.png" type="Texture" id=4]
 [ext_resource path="res://Animation/OpenDoor.tres" type="Animation" id=5]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/UI/Comands.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/GameThings/Goal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=13]
+
 
 [sub_resource type="RectangleShape2D" id=3]
 

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var CHAR_READ_RATE = 0.05
+var CHAR_READ_RATE = 0.015
 
 onready var textboxContainer = $TextBoxContainer
 onready var starSimbol = $TextBoxContainer/MarginContainer/HBoxContainer/Start
@@ -25,13 +25,16 @@ func _process(_delta):
 			if !text_queue.empty():
 				display_text()
 		State.READING:
+			SoundPlayer.writeSoundPlay()
 			if Input.is_action_just_pressed("ui_accept"):
 				Text.percent_visible = 1
 				$Tween.remove_all()
 				endSimbol.text = 'e'
 				changeState(State.FINISHED)
 		State.FINISHED:
+			SoundPlayer.writeSoundStop()
 			if Input.is_action_just_pressed("ui_accept"):
+				SoundPlayer.nextTextSound()
 				changeState(State.READY)
 				if text_queue.empty():
 					hide_textbox()
