@@ -30,11 +30,6 @@ func move(dir):
 				$Tween.start()
 				position += vector_pos
 				return true	
-		
-		elif collider.is_in_group('Open'):
-			$Tween.start()
-			position += vector_pos
-			return true	
 			
 		else:
 			return false

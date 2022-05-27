@@ -38,7 +38,7 @@ bus = "SFX"
 
 [node name="TextWriting" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -10.0
+volume_db = -5.0
 bus = "SFX"
 
 [node name="TextChange" type="AudioStreamPlayer" parent="."]

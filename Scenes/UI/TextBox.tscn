@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Styles/TextBoxFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Styles/Fonts/BoldFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/UI/TextBox.gd" type="Script" id=2]
 [ext_resource path="res://FonteMenu.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Styles/PanelStyle.tres" type="StyleBox" id=4]
@@ -14,7 +14,7 @@ script = ExtResource( 2 )
 anchor_left = 0.1
 anchor_top = 0.666667
 anchor_right = 0.9
-anchor_bottom = 0.944444
+anchor_bottom = 0.941667
 margin_top = -30.0
 margin_bottom = -30.0
 __meta__ = {
@@ -23,12 +23,12 @@ __meta__ = {
 
 [node name="Panel" type="Panel" parent="TextBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 199.0
+margin_bottom = 198.0
 custom_styles/panel = ExtResource( 4 )
 
 [node name="MarginContainer" type="MarginContainer" parent="TextBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 199.0
+margin_bottom = 198.0
 custom_constants/margin_right = 13
 custom_constants/margin_top = 13
 custom_constants/margin_left = 13
@@ -38,33 +38,35 @@ custom_constants/margin_bottom = 13
 margin_left = 13.0
 margin_top = 13.0
 margin_right = 1011.0
-margin_bottom = 186.0
+margin_bottom = 185.0
 
 [node name="Start" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
-margin_right = 16.0
-margin_bottom = 16.0
+margin_right = 18.0
+margin_bottom = 31.0
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 1 )
 text = ">"
 
 [node name="Text" type="RichTextLabel" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 20.0
-margin_right = 978.0
-margin_bottom = 173.0
+margin_left = 22.0
+margin_right = 977.0
+margin_bottom = 172.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 custom_fonts/mono_font = ExtResource( 3 )
-custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 1 )
 custom_fonts/italics_font = ExtResource( 3 )
-custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 1 )
 custom_fonts/normal_font = ExtResource( 3 )
-text = "Place holder né papai hehehehhe"
+bbcode_enabled = true
+bbcode_text = "sasasa [wave] wave"
+text = "sasasa  wave"
 
 [node name="End" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 982.0
-margin_top = 157.0
+margin_left = 981.0
+margin_top = 141.0
 margin_right = 998.0
-margin_bottom = 173.0
+margin_bottom = 172.0
 rect_min_size = Vector2( 16, 16 )
 size_flags_vertical = 8
 custom_fonts/font = ExtResource( 1 )

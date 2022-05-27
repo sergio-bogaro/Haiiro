@@ -2,7 +2,6 @@ extends CanvasLayer
 
 var visible = false
 
-onready var Options = get_node("Options")
 onready var pause = get_node("PauseScript")
 onready var rulesLabel = get_node("PauseScript/VBoxContainer/HBoxContainer2/RulesLabel")
 
@@ -20,7 +19,7 @@ func _on_OptionsButton_pressed():
 	SoundPlayer.clickSound()
 	Fade.fade()
 	yield(get_tree().create_timer(0.5), "timeout")
-	Options.show()
+	Options.showOptions()
 
 
 func _on_ResumeButton_pressed():

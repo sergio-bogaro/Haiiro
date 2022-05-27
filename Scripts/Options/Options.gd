@@ -1,47 +1,56 @@
-extends Control
+extends CanvasLayer
 
 var save_path = "user://config.dat"
 var savedData = {}
 
-onready var masterVol = get_node("VBox/HBox/VBoxAudio/Master/HBoxMaster/MasterVolume")
-onready var musicVol = get_node("VBox/HBox/VBoxAudio/Music/HBoxMusic/MusicVolume")
-onready var sfxVol = get_node("VBox/HBox/VBoxAudio/SFX/HBoxSFX/SFXVolume")
-onready var fullScreen = get_node("VBox/HBox/VBoxVideo/FullScreen/HBoxContainer/CheckButton")
-onready var vSync = get_node("VBox/HBox/VBoxVideo/VSync/HBoxContainer/CheckButton")
+onready var masterVol = get_node("Options/VBox/HBox/VBoxAudio/Master/HBoxMaster/MasterVolume")
+onready var musicVol = get_node("Options/VBox/HBox/VBoxAudio/Music/HBoxMusic/MusicVolume")
+onready var sfxVol = get_node("Options/VBox/HBox/VBoxAudio/SFX/HBoxSFX/SFXVolume")
+onready var fullScreen = get_node("Options/VBox/HBox/VBoxVideo/FullScreen/HBoxContainer/CheckButton")
+onready var vSync = get_node("Options/VBox/HBox/VBoxVideo/VSync/HBoxContainer/CheckButton")
 
 func _ready():
 	var file = File.new()
 	var error = file.open(save_path, File.READ)
 	if error == OK:
 		savedData = file.get_var()
-		file.close()
-		masterVol.text = savedData.masterVol
-		musicVol.text = savedData.musicVol
-		sfxVol.text = savedData.sfxVol
-		fullScreen.pressed = savedData.fullScreen
-		vSync.pressed = savedData.vSync
+		masterVol.text = savedData['masterVol']
+		musicVol.text = savedData['musicVol']
+		sfxVol.text = savedData['sfxVol']
+		fullScreen.pressed = savedData['fullScreen']
+		vSync.pressed = savedData['vSync']
 		changeSettings()
-	$VBox/HBox/VBoxAudio.setValues()
+		$Options/VBox/HBox/VBoxAudio.setValues()
+	else:
+		$Options/VBox/HBox/VBoxAudio.setValues()
+
+
+func showOptions():
+	$Options.show()
 
 func _on_BackButton_pressed():
 	SoundPlayer.clickSound()
 	Fade.fade()
 	yield(get_tree().create_timer(0.5), "timeout")
-	self.hide()
+	$Options.hide()
 
 func _on_BackButton_mouse_entered():
 	SoundPlayer.hoverSound()
 
 func _on_ControlsButton_pressed():
 	SoundPlayer.clickSound()
-	$Controls.show()
+	Fade.fade()
+	yield(get_tree().create_timer(0.5), "timeout")
+	$Options/Controls.show()
 
 func _on_ControlsButton_mouse_entered():
 	SoundPlayer.hoverSound()
 
 func _on_BackControls_pressed():
 	SoundPlayer.clickSound()
-	$Controls.hide()
+	Fade.fade()
+	yield(get_tree().create_timer(0.5), "timeout")
+	$Options/Controls.hide()
 
 func _on_BackControls_mouse_entered():
 	SoundPlayer.hoverSound()

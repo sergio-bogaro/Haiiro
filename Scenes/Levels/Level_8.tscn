@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Pause-Help.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Goal.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Help.gd" type="Script" id=3]
 [ext_resource path="res://Assets/goal.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=5]
@@ -13,7 +12,6 @@
 [ext_resource path="res://Assets/Blocks/Sprite - Block/Haiiro - Block.png" type="Texture" id=11]
 [ext_resource path="res://Fonte_objetivo.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Scenes/GameThings/Camera.tscn" type="PackedScene" id=13]
-
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6, 6 )
@@ -158,7 +156,6 @@ __meta__ = {
 [node name="Goal" type="Sprite" parent="."]
 position = Vector2( 8, 56 )
 texture = ExtResource( 4 )
-script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="Goal"]
 

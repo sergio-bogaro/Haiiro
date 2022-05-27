@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var CHAR_READ_RATE = 0.015
+var readed = false
 
 onready var textboxContainer = $TextBoxContainer
 onready var starSimbol = $TextBoxContainer/MarginContainer/HBoxContainer/Start
@@ -57,7 +58,7 @@ func show_textbox():
 func display_text():
 	get_tree().paused = true
 	var next_text = text_queue.pop_front()
-	Text.text = next_text
+	Text.bbcode_text = next_text
 	Text.percent_visible = 0
 	changeState(State.READING)
 	show_textbox()

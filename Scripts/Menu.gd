@@ -11,7 +11,7 @@ func _ready():
 	if error == OK:
 		savedData = file.get_var()
 		currentLevel = savedData.current_level
-		$VBoxContainer/HBoxContainer/VBoxContainer/ContinueButton.disabled = false
+		$VBoxContainer/HBoxContainer/ContainerButtons/ContinueButton.disabled = false
 		file.close()
 
 func _on_StartButton_pressed():
@@ -36,7 +36,7 @@ func _on_OptionButton_pressed():
 	SoundPlayer.clickSound()
 	Fade.fade()
 	yield(get_tree().create_timer(0.5), "timeout")
-	$Options.show()
+	Options.showOptions()
 
 func _on_OptionButton_mouse_entered():
 	SoundPlayer.hoverSound()
@@ -46,5 +46,22 @@ func _on_ContinueButton_pressed():
 	SoundPlayer.startSound()
 
 func _on_ContinueButton_mouse_entered():
-	if $VBoxContainer/HBoxContainer/VBoxContainer/ContinueButton.disabled == false:
+	if $VBoxContainer/HBoxContainer/ContainerButtons/ContinueButton.disabled == false:
 		SoundPlayer.hoverSound()
+
+func _on_AboutButton_pressed():
+	$About.show()
+	SoundPlayer.clickSound()
+
+
+func _on_AboutButton_mouse_entered():
+	SoundPlayer.hoverSound()
+
+
+func _on_CloseAbout_pressed():
+	$About.hide()
+	SoundPlayer.clickSound()
+
+
+func _on_CloseAbout_mouse_entered():
+	SoundPlayer.hoverSound()

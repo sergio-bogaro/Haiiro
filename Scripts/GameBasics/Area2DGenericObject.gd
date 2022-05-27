@@ -1,11 +1,8 @@
 extends Node2D
 
-export var function = ""
 export var signText = ""
 var inside = false
 
-func _ready():
-	pass # Replace with function body.
 
 func _on_Area2D_body_entered(body):
 	if(body.is_in_group('player')):
@@ -18,8 +15,5 @@ func _on_Area2D_body_exited(body):
 func _input(event):
 	if inside == true:
 		if event.is_action_pressed("ui_accept"):
-			match function:
-				"sign":
-					TextBox.queue_text(signText)
-
+			TextBox.queue_text(signText)
 

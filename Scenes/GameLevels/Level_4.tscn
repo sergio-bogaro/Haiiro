@@ -12,6 +12,7 @@ script = ExtResource( 4 )
 
 [node name="Goal" parent="." instance=ExtResource( 3 )]
 position = Vector2( -8, -16 )
+nextLevelPath = "res://Scenes/GameLevels/Level_5.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 88, 0 )

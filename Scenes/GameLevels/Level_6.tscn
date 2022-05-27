@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/GameThings/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GameThings/GenericObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/GameThings/Goal.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D 
+
+var wall = ''
+
+func _ready():
+	$BaseLevel/Camera.zoom.x = 0.10
+	$BaseLevel/Camera.zoom.y = 0.10
+	TextBox.queue_text(\"As VARIAVEIS podem ter diferentes tipos, que ditam quais podem ser os seus VALORES\")
+	TextBox.queue_text(\"Existem diversos tipos de variaveis que representam varios tipos de dados, como por exemplo: \")
+	TextBox.queue_text(\"Int que representa uma variavel que terá como seu valor um numero inteiro\")
+	TextBox.queue_text(\"Float que representa uma variavel que terá como seu valor um numero decimal\")
+	TextBox.queue_text(\"String que representa uma variavel que terá como seu valor um texto\")
+	TextBox.queue_text(\"A forma como uma variavel é declarada muda de acordo com a linguagem de programação utlizada, neste mundo é possivel ver o tipo de variavel no menu de Pausa\")
+	$Goal/Sprite.frame = 19
+	for i in 10:
+		wall = get_node(\"Walls/GenericObject\" + str(i) +'/Sprite')
+		if i < 5:
+			wall.frame = 85
+		else:
+			wall.frame = 83
+"
+
+[node name="Level_6" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="BaseLevel" parent="." instance=ExtResource( 1 )]
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 56, 64 )
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="GenericObject0" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 40, 0 )
+
+[node name="GenericObject1" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 40, 16 )
+
+[node name="GenericObject2" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 40, 32 )
+
+[node name="GenericObject3" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 40, 48 )
+
+[node name="GenericObject4" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 40, 64 )
+
+[node name="GenericObject5" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 72, 0 )
+
+[node name="GenericObject6" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 72, 16 )
+
+[node name="GenericObject7" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 72, 32 )
+
+[node name="GenericObject8" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 72, 48 )
+
+[node name="GenericObject9" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 72, 64 )
+
+[node name="GenericObject10" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 56, 80 )
+
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 49, -22 )
+nextLevelPath = "res://Scenes/GameLevels/Level_7.tscn"
