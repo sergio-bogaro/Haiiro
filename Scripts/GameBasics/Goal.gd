@@ -9,6 +9,7 @@ onready var levelComplete = get_node("LevelComplete/Control")
 func _on_Area2D_body_entered(body):
 	print(get_tree().current_scene.name)
 	if(body.is_in_group('player')):
+		body.remove_from_group('player')
 		goalsEntered += 1
 		if(goalsEntered == goalNumber):
 			SoundPlayer.levelCompleteSound()
@@ -17,6 +18,7 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	if(body.is_in_group('player')):
+		body.remove_from_group('player')
 		goalsEntered -= 1
 
 func timer(time):

@@ -1,18 +1,260 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/GameThings/BaseLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GameThings/Goal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/GameLevels/Level_4.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Creatures-no-bg.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Blocks/Ghostin = Vc.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Blocks/Haiiro = Pare.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Blocks/Caveira = Meta.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/GameBasics/Help.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Objects/Sem Fundo.png" type="Texture" id=10]
+[ext_resource path="res://Styles/Fonts/Help Font.tres" type="DynamicFont" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6.5, 6.5 )
 
 [node name="Level_4" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="Blocks" type="Node" parent="."]
+
+[node name="Ghostin = Vc" parent="Blocks" instance=ExtResource( 6 )]
+position = Vector2( -22, -5.99998 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Haiiro = Pare" parent="Blocks" instance=ExtResource( 7 )]
+position = Vector2( 1.90735e-06, -46 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Caveira = Meta" parent="Blocks" instance=ExtResource( 8 )]
+position = Vector2( 11, 10 )
+scale = Vector2( 0.7, 0.7 )
+
 [node name="BaseLevel" parent="." instance=ExtResource( 2 )]
 
 [node name="Goal" parent="." instance=ExtResource( 3 )]
-position = Vector2( -8, -16 )
+position = Vector2( -8, 80 )
 nextLevelPath = "res://Scenes/GameLevels/Level_5.tscn"
 
+[node name="Goal2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 168, -16 )
+script = null
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 88, 0 )
+modulate = Color( 0.541176, 0.541176, 0.921569, 1 )
+position = Vector2( 176, 96 )
+
+[node name="Player2" type="KinematicBody2D" parent="." groups=["player"]]
+position = Vector2( 112, 96 )
+
+[node name="Player" type="Sprite" parent="Player2"]
+position = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+centered = false
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+position = Vector2( 7.5, 8.5 )
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Player2"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="Player2"]
+
+[node name="Player3" type="KinematicBody2D" parent="." groups=["player"]]
+position = Vector2( 176, 80 )
+
+[node name="Player" type="Sprite" parent="Player3"]
+position = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+centered = false
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player3"]
+position = Vector2( 7.5, 8.5 )
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Player3"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="Player3"]
+
+[node name="Player4" type="KinematicBody2D" parent="." groups=["player"]]
+position = Vector2( 144, 0 )
+
+[node name="Player" type="Sprite" parent="Player4"]
+position = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+centered = false
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player4"]
+position = Vector2( 7.5, 8.5 )
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Player4"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="Player4"]
+
+[node name="Player5" type="KinematicBody2D" parent="." groups=["player"]]
+position = Vector2( 16, 96 )
+
+[node name="Player" type="Sprite" parent="Player5"]
+position = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+centered = false
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player5"]
+position = Vector2( 7.5, 8.5 )
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Player5"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="Player5"]
+
+[node name="Help" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 9 )
+
+[node name="Help" type="Control" parent="Help"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="ColorRect" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.2, 0.207843, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Var" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVar" type="Label" parent="Help/Help/HBoxContainer/Var"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "
+Define qual é o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Var"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 254.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Var/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 157.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "  - Haiiro 
+
+  - Ghostin
+
+  - Caveira"
+
+[node name="Haiiro" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 108 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="Ghostin" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+modulate = Color( 0.541176, 0.541176, 0.921569, 1 )
+position = Vector2( 218, 164 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+hframes = 17
+vframes = 15
+frame = 182
+
+[node name="Caveira" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 228 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Func" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+visible = false
+margin_left = 428.0
+margin_right = 852.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Value" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_left = 642.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVal" type="Label" parent="Help/Help/HBoxContainer/Value"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "
+Define o que vai acontecer com o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Value"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 286.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Value/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 189.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "  - Pare: Nao pode ser atravessado
+
+  - Voce: O que vai ser controlado
+
+  - Meta: Ao entrar dentro a fase sera 
+  concluida"

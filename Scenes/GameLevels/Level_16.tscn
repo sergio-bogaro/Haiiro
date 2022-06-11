@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/GameThings/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/GameLevels/Level_16.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GameThings/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Blocks/Bandeira = Meta.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Blocks/Parede = Pare.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Blocks/Caveira = Derrota.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Blocks/Haiiro = vc.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/GameBasics/Defeat.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Objects/Sem Fundo.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Blocks/IFs/For LV 16.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/GameBasics/Help.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Creatures-no-bg.png" type="Texture" id=13]
+[ext_resource path="res://Assets/box.png" type="Texture" id=15]
+[ext_resource path="res://Styles/Fonts/Help Font.tres" type="DynamicFont" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.5, 6.5 )
 
 [node name="Level_16" type="Node2D"]
 script = ExtResource( 2 )
@@ -14,4 +28,379 @@ script = ExtResource( 2 )
 position = Vector2( 16, 16 )
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( -8, -32 )
+position = Vector2( 296, 144 )
+nextLevelPath = "res://Scenes/GameLevels/Level_17.tscn"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.65
+autostart = true
+
+[node name="Block" type="Node" parent="."]
+
+[node name="Bandeira = Meta" parent="Block" instance=ExtResource( 5 )]
+position = Vector2( 16, 144 )
+
+[node name="Caveira = Derrota" parent="Block" instance=ExtResource( 7 )]
+position = Vector2( 16, 128 )
+
+[node name="Haiiro = vc" parent="Block" instance=ExtResource( 8 )]
+position = Vector2( -32, 120 )
+
+[node name="Parede = Pare" parent="Block" instance=ExtResource( 6 )]
+position = Vector2( -32, 88 )
+
+[node name="Defeats" type="Node" parent="."]
+
+[node name="Caveira1" type="Node2D" parent="Defeats"]
+position = Vector2( 144, 16 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira1/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira1/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Caveira2" type="Node2D" parent="Defeats"]
+position = Vector2( 160, 48 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira2"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira2/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira2/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Caveira3" type="Node2D" parent="Defeats"]
+position = Vector2( 224, 48 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira3"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira3/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira3/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Caveira4" type="Node2D" parent="Defeats"]
+position = Vector2( 192, 96 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira4"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira4/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira4/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Caveira5" type="Node2D" parent="Defeats"]
+position = Vector2( 288, 64 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira5"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira5/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira5/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Caveira6" type="Node2D" parent="Defeats"]
+position = Vector2( 352, 48 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira6"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira6/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira6/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Caveira7" type="Node2D" parent="Defeats"]
+position = Vector2( 352, 112 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira7"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira7/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira7/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Caveira8" type="Node2D" parent="Defeats"]
+position = Vector2( 224, 144 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira8"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira8/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira8/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Caveira9" type="Node2D" parent="Defeats"]
+position = Vector2( 368, 160 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira9"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira9/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira9/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Caveira10" type="Node2D" parent="Defeats"]
+position = Vector2( 400, 144 )
+script = ExtResource( 9 )
+
+[node name="DefeatArea2d" type="Area2D" parent="Defeats/Caveira10"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Defeats/Caveira10/DefeatArea2d"]
+position = Vector2( -89.5, 7.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Defeats/Caveira10/DefeatArea2d"]
+position = Vector2( -97.5, 0.500002 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 10 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="ForLv16" type="Sprite" parent="."]
+position = Vector2( 328, 40 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 11 )
+
+[node name="Help" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 12 )
+
+[node name="Help" type="Control" parent="Help"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="ColorRect" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.2, 0.207843, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Var" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( -592, -56 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVar" type="Label" parent="Help/Help/HBoxContainer/Var"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 16 )
+text = "
+Define qual é o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Var"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 254.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Var/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 157.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 16 )
+text = "  - Haiiro 
+
+  - Caveira
+
+  - Bandeira "
+
+[node name="Haiiro" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 108 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 13 )
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="Bandeira" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 228 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+hframes = 20
+vframes = 10
+frame = 176
+
+[node name="Caveira" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 164 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Box" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+visible = false
+position = Vector2( 192, 256 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 15 )
+centered = false
+
+[node name="Value" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_left = 642.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVal" type="Label" parent="Help/Help/HBoxContainer/Value"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 16 )
+text = "
+Define o que vai acontecer com o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Value"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 318.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Value/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 221.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 16 )
+text = "  - Voce: O que vai ser controlado
+
+  - Derrota: O objeto que entrar em
+  contato vai ser apagado
+
+  - Meta:Ao entrar em todas a fase sera
+  concluida"
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Defeats/Caveira1/DefeatArea2d" to="Defeats/Caveira1" method="_on_DefeatArea2d_body_entered"]
+[connection signal="body_entered" from="Defeats/Caveira2/DefeatArea2d" to="Defeats/Caveira2" method="_on_DefeatArea2d_body_entered"]
+[connection signal="body_entered" from="Defeats/Caveira3/DefeatArea2d" to="Defeats/Caveira3" method="_on_DefeatArea2d_body_entered"]
+[connection signal="body_entered" from="Defeats/Caveira4/DefeatArea2d" to="Defeats/Caveira4" method="_on_DefeatArea2d_body_entered"]
+[connection signal="body_entered" from="Defeats/Caveira5/DefeatArea2d" to="Defeats/Caveira5" method="_on_DefeatArea2d_body_entered"]
+[connection signal="body_entered" from="Defeats/Caveira6/DefeatArea2d" to="Defeats/Caveira6" method="_on_DefeatArea2d_body_entered"]
+[connection signal="body_entered" from="Defeats/Caveira7/DefeatArea2d" to="Defeats/Caveira7" method="_on_DefeatArea2d_body_entered"]
+[connection signal="body_entered" from="Defeats/Caveira8/DefeatArea2d" to="Defeats/Caveira8" method="_on_DefeatArea2d_body_entered"]
+[connection signal="body_entered" from="Defeats/Caveira9/DefeatArea2d" to="Defeats/Caveira9" method="_on_DefeatArea2d_body_entered"]
+[connection signal="body_entered" from="Defeats/Caveira10/DefeatArea2d" to="Defeats/Caveira10" method="_on_DefeatArea2d_body_entered"]

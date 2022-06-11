@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TitleFont.tres" type="DynamicFont" id=1]
+
+[node name="Node2D" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="Label" parent="VBoxContainer"]
+margin_right = 1280.0
+margin_bottom = 48.0
+text = "
+
+"
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_left = 55.0
+margin_top = 52.0
+margin_right = 1225.0
+margin_bottom = 117.0
+size_flags_horizontal = 4
+custom_colors/font_color = Color( 0.929412, 0.886275, 0.835294, 1 )
+custom_colors/font_color_shadow = Color( 0.819608, 0.333333, 0.411765, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Obrigado por jogar"

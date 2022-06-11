@@ -11,14 +11,14 @@ var inputs = {
 }
 
 func _unhandled_input(event):
-	if self.is_in_group('player'):
-		for dir in inputs.keys():
-			if event.is_action_pressed(dir):
+	for dir in inputs.keys():
+		if event.is_action_pressed(dir):
+			moves += 1
+			if self.is_in_group('player'):
 				if ($Tween.is_active() == false):
 					move(dir)
 
 func move(dir):
-	moves += 1
 	SoundPlayer.walkSound()
 	var vector_pos = inputs[dir] * grid_size
 	ray.cast_to = vector_pos

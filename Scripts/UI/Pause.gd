@@ -1,19 +1,21 @@
 extends CanvasLayer
 
 var visible = false
+var helpVisible = false
 
 onready var pause = get_node("PauseScript")
 onready var rulesLabel = get_node("PauseScript/VBoxContainer/HBoxContainer2/RulesLabel")
 
 func apareceSome():
-	SoundPlayer.pauseSound()
-	get_tree().paused = not get_tree().paused
-	if visible == false:
-		pause.show()
-		visible = true
-	elif visible == true:
-		pause.hide()
-		visible = false
+	if helpVisible == false:
+		SoundPlayer.pauseSound()
+		get_tree().paused = not get_tree().paused
+		if visible == false:
+			pause.show()
+			visible = true
+		elif visible == true:
+			pause.hide()
+			visible = false
 
 func _on_OptionsButton_pressed():
 	SoundPlayer.clickSound()

@@ -1,13 +1,27 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/GameThings/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/GameThings/Goal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/GameLevels/Level_5.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/GameThings/GenericObject.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Blocks/Plantas = vc.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Blocks/Bandeira = Meta.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Blocks/Haiiro = vc.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Blocks/Caverna = Meta.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Blocks/Plantas = Pare.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Blocks/Haiiro = Pare.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/GameBasics/Help.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Creatures-no-bg.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Objects/Sem Fundo.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/GenericMovable.gd" type="Script" id=16]
+[ext_resource path="res://Styles/Fonts/Help Font.tres" type="DynamicFont" id=17]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 25, 25 )
+extents = Vector2( 16, 16 )
 
 [node name="Level_5" type="Node2D"]
 script = ExtResource( 4 )
@@ -19,34 +33,209 @@ position = Vector2( 128, 0 )
 
 [node name="Walls" type="Node" parent="."]
 
-[node name="GenericObject0" parent="Walls" instance=ExtResource( 5 )]
-position = Vector2( 80, 0 )
+[node name="GenericObject0" type="KinematicBody2D" parent="Walls"]
+position = Vector2( 240, 80 )
+script = ExtResource( 16 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject0"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 14 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 81
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject0"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Walls/GenericObject0"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+
+[node name="Tween" type="Tween" parent="Walls/GenericObject0"]
 
 [node name="GenericObject1" parent="Walls" instance=ExtResource( 5 )]
-position = Vector2( 48, 32 )
+position = Vector2( 176, 96 )
 
 [node name="GenericObject2" parent="Walls" instance=ExtResource( 5 )]
-position = Vector2( 120, 48 )
+position = Vector2( 176, 48 )
 
 [node name="GenericObject3" parent="Walls" instance=ExtResource( 5 )]
-position = Vector2( 176, 0 )
+position = Vector2( 104, 128 )
 
 [node name="Goals" type="Node" parent="."]
 
 [node name="Goal" parent="Goals" instance=ExtResource( 2 )]
-position = Vector2( 168, 96 )
+position = Vector2( 232, 112 )
 
 [node name="Goal2" parent="Goals" instance=ExtResource( 2 )]
 position = Vector2( -8, -16 )
 nextLevelPath = "res://Scenes/GameLevels/Level_6.tscn"
 
 [node name="Area" type="Node2D" parent="."]
-position = Vector2( 144, 80 )
+position = Vector2( 208, 96 )
 
 [node name="Area2D" type="Area2D" parent="Area"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area/Area2D"]
-position = Vector2( 23, 23 )
+position = Vector2( 32, 32 )
 shape = SubResource( 1 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Haiiro = vc" parent="Node" instance=ExtResource( 8 )]
+position = Vector2( -32, 88 )
+
+[node name="Haiiro = Pare" parent="Node" instance=ExtResource( 11 )]
+position = Vector2( 0, 16 )
+
+[node name="Bandeira = Meta" parent="Node" instance=ExtResource( 7 )]
+position = Vector2( 16, 96 )
+
+[node name="Caverna = Meta" parent="Node" instance=ExtResource( 9 )]
+
+[node name="Plantas = Pare" parent="Node" instance=ExtResource( 10 )]
+
+[node name="Plantas = vc" parent="Node" instance=ExtResource( 6 )]
+visible = false
+
+[node name="Help" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 12 )
+
+[node name="Help" type="Control" parent="Help"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="ColorRect" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.2, 0.207843, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Var" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVar" type="Label" parent="Help/Help/HBoxContainer/Var"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 17 )
+text = "
+Define qual é o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Var"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 318.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Var/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 221.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 17 )
+text = "  - Haiiro 
+
+  - Planta
+
+  - Bandeira
+
+  - Caverna "
+
+[node name="Haiiro" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 108 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 13 )
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="Bandeira" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 228 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 14 )
+hframes = 20
+vframes = 10
+frame = 176
+
+[node name="Caverna" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 292 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 14 )
+hframes = 20
+vframes = 10
+frame = 19
+
+[node name="Planta1" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 164 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 14 )
+hframes = 20
+vframes = 10
+frame = 195
+
+[node name="Planta2" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 274, 164 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 14 )
+hframes = 20
+vframes = 10
+frame = 196
+
+[node name="Value" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_left = 642.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVal" type="Label" parent="Help/Help/HBoxContainer/Value"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 17 )
+text = "
+Define o que vai acontecer com o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Value"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 286.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Value/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 189.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 17 )
+text = "  - Voce: O que vai ser controlado
+
+  - Pare: Nao pode ser atravessado
+
+  - Meta: Ao entrar dentro a fase sera 
+  concluida"
 
 [connection signal="body_entered" from="Area/Area2D" to="." method="_on_Area2D_body_entered"]

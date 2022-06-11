@@ -1,26 +1,1008 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/GameThings/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/GameBasics/Goal.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/GameThings/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Objects/Sem Fundo.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/UI/LevelComplete.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Objects/Classic.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/GameLevels/Level_13.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Blocks/Haiiro = vc.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Blocks/Parede = Pare.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Blocks/Bandeira = Meta.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Blocks/IFs/IF LV 13.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/GameBasics/Help.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Creatures-no-bg.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Objects/Complete.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Objects/Modern.png" type="Texture" id=15]
+[ext_resource path="res://Assets/box.png" type="Texture" id=16]
+[ext_resource path="res://Styles/Fonts/Help Font.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Styles/Fonts/GameFont.tres" type="DynamicFont" id=18]
+[ext_resource path="res://Assets/Objects/Moves.png" type="Texture" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 6 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
 
 [node name="Level_13" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Goal" type="Node2D" parent="."]
+position = Vector2( 40, 16 )
+script = ExtResource( 2 )
+nextLevelPath = "res://Scenes/GameLevels/Level_14.tscn"
+goalNumber = 4
+
+[node name="Sprite" type="Sprite" parent="Goal"]
+position = Vector2( -32, -8 )
+texture = ExtResource( 4 )
+hframes = 20
+vframes = 10
+frame = 176
+
+[node name="Area2D" type="Area2D" parent="Goal/Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/Sprite/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="Goal"]
+position = Vector2( 272, -8 )
+texture = ExtResource( 4 )
+hframes = 20
+vframes = 10
+frame = 176
+
+[node name="Area2D" type="Area2D" parent="Goal/Sprite2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/Sprite2/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite3" type="Sprite" parent="Goal"]
+position = Vector2( -32, 152 )
+texture = ExtResource( 4 )
+hframes = 20
+vframes = 10
+frame = 176
+
+[node name="Area2D" type="Area2D" parent="Goal/Sprite3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/Sprite3/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite4" type="Sprite" parent="Goal"]
+position = Vector2( 272, 152 )
+texture = ExtResource( 4 )
+hframes = 20
+vframes = 10
+frame = 176
+
+[node name="Area2D" type="Area2D" parent="Goal/Sprite4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/Sprite4/Area2D"]
+shape = SubResource( 1 )
+
+[node name="LevelComplete" parent="Goal" instance=ExtResource( 5 )]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="GenericObject1" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 32, 0 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject1"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject1"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject2" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 288, 0 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject2"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject2"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject3" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 304, 144 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject3"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject3"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject4" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 16, 160 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject4"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject4"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject5" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 224, 112 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject5"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject5"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject41" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 176, 48 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject41"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject41"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject6" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 288, 16 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject6"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject6"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject7" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 272, 160 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject7"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject7"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject9" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 48, 16 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject9"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject9"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject24" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 64, 16 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject24"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject24"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject25" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 64, 32 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject25"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject25"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject10" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 288, 32 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject10"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject10"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject11" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 272, 144 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject11"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject11"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject12" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 16, 128 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject12"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject12"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject13" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 32, 16 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject13"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject13"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject14" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 288, 48 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject14"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject14"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject30" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 240, 112 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject30"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject30"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject31" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 240, 128 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject31"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject31"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject32" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 240, 144 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject32"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject32"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject33" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 192, 32 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject33"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject33"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject34" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 192, 48 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject34"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject34"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject35" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 192, 64 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject35"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject35"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject36" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 192, 80 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject36"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject36"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject37" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 192, 96 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject37"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject37"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject38" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 192, 112 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject38"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject38"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject39" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 192, 128 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject39"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject39"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject40" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 192, 160 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject40"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject40"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject15" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 256, 144 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject15"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject15"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject17" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 48, 112 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject17"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject17"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject18" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 32, 112 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject18"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject18"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject19" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 64, 96 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject19"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject19"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject20" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 48, 96 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject20"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject20"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject21" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 272, 48 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject21"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject21"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject26" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 256, 48 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject26"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject26"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject27" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 240, 48 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject27"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject27"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject28" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 224, 48 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject28"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject28"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject23" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 64, 64 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject23"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject23"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject22" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 64, 80 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject22"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject22"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="GenericObject16" type="KinematicBody2D" parent="Walls"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 32, 128 )
+
+[node name="Sprite" type="Sprite" parent="Walls/GenericObject16"]
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/GenericObject16"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="Decoration" type="Node" parent="."]
+
+[node name="Complete" type="Sprite" parent="Decoration"]
+position = Vector2( 254, 34 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="Decoration"]
+position = Vector2( 56, 40 )
+texture = ExtResource( 6 )
+flip_h = true
+hframes = 20
+vframes = 20
+frame = 335
+
+[node name="Sprite2" type="Sprite" parent="Decoration"]
+position = Vector2( 184, 40 )
+texture = ExtResource( 6 )
+flip_h = true
+hframes = 20
+vframes = 20
+frame = 335
+
+[node name="Sprite3" type="Sprite" parent="Decoration"]
+position = Vector2( 312, 136 )
+texture = ExtResource( 6 )
+flip_h = true
+hframes = 20
+vframes = 20
+frame = 342
+
+[node name="Sprite4" type="Sprite" parent="Decoration"]
+position = Vector2( 280, 40 )
+texture = ExtResource( 6 )
+flip_h = true
+hframes = 20
+vframes = 20
+frame = 343
+
+[node name="Sprite5" type="Sprite" parent="Decoration"]
+position = Vector2( 112, 8 )
+texture = ExtResource( 6 )
+flip_h = true
+hframes = 20
+vframes = 20
+frame = 356
+
+[node name="Sprite6" type="Sprite" parent="Decoration"]
+position = Vector2( 40, 168 )
+texture = ExtResource( 6 )
+flip_h = true
+hframes = 20
+vframes = 20
+frame = 199
+
+[node name="Sprite7" type="Sprite" parent="Decoration"]
+position = Vector2( 56, 8 )
+texture = ExtResource( 6 )
+flip_h = true
+hframes = 20
+vframes = 20
+frame = 199
+
+[node name="Sprite8" type="Sprite" parent="Decoration"]
+position = Vector2( 216, 168 )
+texture = ExtResource( 6 )
+flip_h = true
+hframes = 20
+vframes = 20
+frame = 199
+
+[node name="Sprite9" type="Sprite" parent="Decoration"]
+position = Vector2( 232, 40 )
+texture = ExtResource( 6 )
+flip_h = true
+hframes = 20
+vframes = 20
+frame = 199
+
+[node name="Moves" type="Sprite" parent="Decoration"]
+position = Vector2( 248, 6 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 19 )
 
 [node name="BaseLevel" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 16, 16 )
+position = Vector2( 32, 144 )
 
-[node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( -8, -32 )
+[node name="Player2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 208, 32 )
+
+[node name="Player3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, 160 )
+
+[node name="Player4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 64, 0 )
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="Haiiro = vc" parent="Blocks" instance=ExtResource( 8 )]
+position = Vector2( 202, 58 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Parede = Pare" parent="Blocks" instance=ExtResource( 9 )]
+position = Vector2( 238, 46.5 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Bandeira = Meta" parent="Blocks" instance=ExtResource( 10 )]
+position = Vector2( 266, 121 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="IfLv13" type="Sprite" parent="Blocks"]
+position = Vector2( 128, 191 )
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 64.0
-margin_right = 104.0
+margin_left = 272.0
+margin_right = 312.0
 margin_bottom = 14.0
-text = "Falar sobre repetição
-
-For / While"
+custom_fonts/font = ExtResource( 18 )
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 272.0
+margin_top = 16.0
+margin_right = 312.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 18 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 12 )
+
+[node name="Help" type="Control" parent="Help"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="ColorRect" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.2, 0.207843, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Var" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( -592, -56 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVar" type="Label" parent="Help/Help/HBoxContainer/Var"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 17 )
+text = "
+Define qual é o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Var"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 254.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Var/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 157.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 17 )
+text = "  - Haiiro 
+
+  - Parede
+
+  - Bandeira"
+
+[node name="Haiiro" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 108 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 13 )
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="Bandeira" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 228 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+hframes = 20
+vframes = 10
+frame = 176
+
+[node name="Caveira" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+visible = false
+position = Vector2( 216, 344 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+hframes = 20
+vframes = 10
+frame = 197
+
+[node name="Box" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+visible = false
+position = Vector2( 192, 256 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="Botão" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+visible = false
+position = Vector2( 192, 384 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 15 )
+centered = false
+hframes = 20
+vframes = 21
+frame = 152
+
+[node name="Sprite" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+modulate = Color( 0.694118, 0.737255, 0.85098, 1 )
+position = Vector2( 194, 140 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 20
+vframes = 20
+frame = 66
+
+[node name="Value" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_left = 642.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVal" type="Label" parent="Help/Help/HBoxContainer/Value"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 17 )
+text = "
+Define o que vai acontecer com o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Value"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 286.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Value/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 189.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 17 )
+text = "  - Voce: O que vai ser controlado
+
+  - Pare: Nao pode ser atravessado
+
+  - Meta:Ao entrar em todas a fase sera
+  concluida"
+
+[connection signal="body_entered" from="Goal/Sprite/Area2D" to="Goal" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Goal/Sprite/Area2D" to="Goal" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Goal/Sprite2/Area2D" to="Goal" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Goal/Sprite2/Area2D" to="Goal" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Goal/Sprite3/Area2D" to="Goal" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Goal/Sprite3/Area2D" to="Goal" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Goal/Sprite4/Area2D" to="Goal" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Goal/Sprite4/Area2D" to="Goal" method="_on_Area2D_body_exited"]

@@ -1,17 +1,27 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Scenes/GameThings/Sign.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/GameBasics/Area2DGenericObject.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GameThings/BaseLevel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GameThings/Goal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/GenericMovable.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/GameLevels/Level-2.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Objects/Sem Fundo.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Blocks/Haiiro = vc.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Blocks/Casa = Pare.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Blocks/Bandeira = Meta.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Blocks/Placa = Usar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/GameBasics/Help.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Creatures-no-bg.png" type="Texture" id=13]
+[ext_resource path="res://Styles/Fonts/Help Font.tres" type="DynamicFont" id=15]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 8 )
 
 [node name="Level_2" type="Node2D"]
@@ -43,8 +53,26 @@ cast_to = Vector2( 0, 16 )
 [node name="Tween" type="Tween" parent="House"]
 
 [node name="Goal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 48, 48 )
+position = Vector2( 40, 40 )
 nextLevelPath = "res://Scenes/GameLevels/Level_3.tscn"
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="Haiiro = vc" parent="Blocks" instance=ExtResource( 8 )]
+position = Vector2( 90, -6 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Casa = Pare" parent="Blocks" instance=ExtResource( 9 )]
+position = Vector2( 56, -8 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Bandeira = Meta" parent="Blocks" instance=ExtResource( 10 )]
+position = Vector2( 90, -12 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Placa = Usar" parent="Blocks" instance=ExtResource( 11 )]
+position = Vector2( 124, -2 )
+scale = Vector2( 0.7, 0.7 )
 
 [node name="Decoration" type="Node" parent="."]
 
@@ -71,22 +99,162 @@ cast_to = Vector2( 0, 16 )
 
 [node name="Tween" type="Tween" parent="Decoration/GenericObject3"]
 
-[node name="Node2D" parent="Decoration" instance=ExtResource( 1 )]
-position = Vector2( 112, -16 )
-function = "sign"
+[node name="Node2D" type="Node2D" parent="Decoration"]
+position = Vector2( 160, 16 )
+script = ExtResource( 1 )
 signText = "Casa de Haiiro"
+
+[node name="Area2D" type="Area2D" parent="Decoration/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decoration/Node2D/Area2D"]
+position = Vector2( 24, 24 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Decoration/Node2D/Area2D"]
+position = Vector2( 16, 16 )
+scale = Vector2( 1.23077, 1.23077 )
+texture = ExtResource( 7 )
+centered = false
+hframes = 20
+vframes = 10
+frame = 164
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 160, 40 )
 z_index = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="Help" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 12 )
+
+[node name="Help" type="Control" parent="Help"]
 visible = false
-margin_right = 40.0
-margin_bottom = 14.0
-text = "Haiiro = Você
-Casa = Pare
-Placa = Interagir
-Bandeira = Meta
-Objetivo:
-	Chegar na meta"
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="ColorRect" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.2, 0.207843, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Var" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVar" type="Label" parent="Help/Help/HBoxContainer/Var"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 15 )
+text = "
+Define qual é o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Var"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 318.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Var/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 221.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 15 )
+text = "  - Haiiro 
+
+  - Casa
+
+  - Placa
+
+  - Bandeira"
+
+[node name="Haiiro" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 216, 104 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 13 )
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="Casa" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 164 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+hframes = 20
+vframes = 10
+frame = 5
+
+[node name="Placa" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 228 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+hframes = 20
+vframes = 10
+frame = 164
+
+[node name="Bandeira" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 292 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+hframes = 20
+vframes = 10
+frame = 176
+
+[node name="Value" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_left = 642.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVal" type="Label" parent="Help/Help/HBoxContainer/Value"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 15 )
+text = "
+Define o que vai acontecer com o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Value"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 382.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Value/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 285.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 15 )
+text = "  - Voce: O que vai ser controlado
+
+  - Pare: Nao pode ser atravessado
+
+  - Usar: Ao entrar e apertar a tecla
+  enter uma funcao vai ser executada
+
+  - Meta: Ao entrar a fase sera 
+  concluida"
+
+[connection signal="body_entered" from="Decoration/Node2D/Area2D" to="Decoration/Node2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Decoration/Node2D/Area2D" to="Decoration/Node2D" method="_on_Area2D_body_exited"]

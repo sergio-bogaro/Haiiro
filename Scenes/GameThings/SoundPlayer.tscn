@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Sounds/SFX/ButtonClick.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Assets/Sounds/SFX/TextBox.wav" type="AudioStream" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Assets/Sounds/SFX/TextBox - Next .mp3" type="AudioStream" id=7]
 [ext_resource path="res://Assets/Sounds/SFX/ButtonHover.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Assets/Sounds/SFX/Retro FootStep Mud 01.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/SFX/OpenDoor.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Sounds/SFX/CloseDoor.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Sounds/SFX/MonsterLaugh.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Sounds/SFX/Hit.wav" type="AudioStream" id=13]
 
 [node name="SoundPlayer" type="Node"]
 pause_mode = 2
@@ -48,5 +52,20 @@ bus = "SFX"
 
 [node name="Walk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -10.0
+volume_db = -15.0
 bus = "SFX"
+
+[node name="OpenDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+
+[node name="CloseDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -10.0
+
+[node name="Laught" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -10.0

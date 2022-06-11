@@ -4,11 +4,11 @@ onready var Player = get_node("Player/Player")
 onready var Goal = get_node("Goal/Sprite")
 
 func _ready():
-	Pause.rulesLabel.text = "xxxxxx  = Você\nParede = Pare\nCaveira = Meta"
-	Player.frame = 82
+	Pause.rulesLabel.text = "Ghostin = Você\nHaiiro = Pare\nCaveira = Meta"
+	Player.frame = 182
 	Goal.frame = 197
 	$BaseLevel/Camera.zoom.x = 0.15
 	$BaseLevel/Camera.zoom.y = 0.15
-	$BaseLevel/WorldWall/Area2D/BottonWall.position.y = 100
+	$BaseLevel/WorldWall/Area2D/BottonWall.position.y = 110
 	$BaseLevel/WorldWall/Area2D/RightWall.position.x = 200
-	Pause.rulesLabel.text = "Haiiro  = Você\nBandeira = Meta"
+	TextBox.queue_text("Objetivo: \n	Chegar a Meta")

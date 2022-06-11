@@ -1,0 +1,154 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://FonteMenu.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Creatures-no-bg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Objects/Sem Fundo.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/GameBasics/Help.gd" type="Script" id=4]
+[ext_resource path="res://Styles/Fonts/Help Font.tres" type="DynamicFont" id=5]
+
+[node name="Help" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="Help" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="ColorRect" parent="Help"]
+modulate = Color( 1, 1, 1, 0.572549 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Var" type="VBoxContainer" parent="Help/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Help/HBoxContainer/Var"]
+margin_right = 638.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 1 )
+text = "
+Variaveis"
+align = 1
+
+[node name="Level Things2" type="Label" parent="Help/HBoxContainer/Var"]
+margin_top = 75.0
+margin_right = 638.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Define qual é o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/HBoxContainer/Var"]
+margin_top = 140.0
+margin_right = 638.0
+margin_bottom = 233.0
+
+[node name="Level Things" type="Label" parent="Help/HBoxContainer/Var/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "  - Haiiro 
+
+  - Parede"
+
+[node name="Sprite" type="Sprite" parent="Help/HBoxContainer/Var"]
+position = Vector2( 208, 160 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="Sprite2" type="Sprite" parent="Help/HBoxContainer/Var"]
+position = Vector2( 202, 218 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+hframes = 20
+vframes = 10
+frame = 167
+
+[node name="Sprite3" type="Sprite" parent="Help/HBoxContainer/Var"]
+position = Vector2( 210, 218 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+hframes = 20
+vframes = 10
+frame = 168
+
+[node name="Func" type="VBoxContainer" parent="Help/HBoxContainer"]
+visible = false
+margin_left = 428.0
+margin_right = 852.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Help/HBoxContainer/Func"]
+margin_right = 424.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 1 )
+text = "
+Funçõoes"
+align = 1
+
+[node name="Value" type="VBoxContainer" parent="Help/HBoxContainer"]
+margin_left = 642.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Help/HBoxContainer/Value"]
+margin_right = 638.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 1 )
+text = "
+Valores"
+align = 1
+
+[node name="Level Things2" type="Label" parent="Help/HBoxContainer/Value"]
+margin_top = 75.0
+margin_right = 638.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "O que vai acontecer com o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/HBoxContainer/Value"]
+margin_top = 140.0
+margin_right = 638.0
+margin_bottom = 233.0
+
+[node name="Level Things" type="Label" parent="Help/HBoxContainer/Value/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "  - Voce: O que vai ser controlado
+
+  - Pare: Nao pode ser atravessado"

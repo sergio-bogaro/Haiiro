@@ -30,7 +30,7 @@ func _process(_delta):
 			if Input.is_action_just_pressed("ui_accept"):
 				Text.percent_visible = 1
 				$Tween.remove_all()
-				endSimbol.text = 'e'
+				endSimbol.text = '*'
 				changeState(State.FINISHED)
 		State.FINISHED:
 			SoundPlayer.writeSoundStop()

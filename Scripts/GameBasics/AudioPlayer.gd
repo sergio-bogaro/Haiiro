@@ -8,6 +8,10 @@ onready var pause = get_node("PauseMenu")
 onready var textWrite = get_node("TextWriting")
 onready var textChange = get_node("TextChange")
 onready var walk = get_node("Walk")
+onready var openDoor = get_node("OpenDoor")
+onready var closeDoor = get_node("CloseDoor")
+onready var laught = get_node("Laught")
+onready var hit = get_node("Hit")
 
 func hoverSound():
 	hover.play()
@@ -35,3 +39,15 @@ func nextTextSound():
 
 func walkSound():
 	walk.play(0)
+
+func openDoorSound():
+	openDoor.play(0)
+
+func closeDoorSound():
+	closeDoor.play(0)
+
+func laughtSound():
+	laught.play()
+	
+func hitSound():
+	hit.play()

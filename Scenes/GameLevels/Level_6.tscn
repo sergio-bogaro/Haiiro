@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/GameThings/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/GameThings/GenericObject.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GameThings/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GameThings/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Blocks/Caverna = Meta.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Blocks/Haiiro = vc.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Blocks/Parede = Pare.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/GameBasics/Help.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Creatures-no-bg.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Objects/Sem Fundo.png" type="Texture" id=10]
+[ext_resource path="res://Styles/Fonts/Help Font.tres" type="DynamicFont" id=12]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D 
@@ -13,12 +20,14 @@ var wall = ''
 func _ready():
 	$BaseLevel/Camera.zoom.x = 0.10
 	$BaseLevel/Camera.zoom.y = 0.10
-	TextBox.queue_text(\"As VARIAVEIS podem ter diferentes tipos, que ditam quais podem ser os seus VALORES\")
-	TextBox.queue_text(\"Existem diversos tipos de variaveis que representam varios tipos de dados, como por exemplo: \")
+	Pause.rulesLabel.text = \"Haiiro = Você\\nParede = Pare\\nCaverna = Meta\"
+	TextBox.queue_text(\"As Variaveis podem ter diferentes tipos, que ditam quais podem ser os seus Valores\")
+	TextBox.queue_text(\"Existem diversos tipos de variaveis que representam vários tipos de dados, como por exemplo: \")
 	TextBox.queue_text(\"Int que representa uma variavel que terá como seu valor um numero inteiro\")
 	TextBox.queue_text(\"Float que representa uma variavel que terá como seu valor um numero decimal\")
 	TextBox.queue_text(\"String que representa uma variavel que terá como seu valor um texto\")
-	TextBox.queue_text(\"A forma como uma variavel é declarada muda de acordo com a linguagem de programação utlizada, neste mundo é possivel ver o tipo de variavel no menu de Pausa\")
+	TextBox.queue_text(\"Neste jogo as variaveis visiveis na tela são do tipo objeto, que são variaveis que tem diversas propriedades e metodos vinculados\")
+	TextBox.queue_text(\"Objetivo: \\n	Chegar a Meta\")
 	$Goal/Sprite.frame = 19
 	for i in 10:
 		wall = get_node(\"Walls/GenericObject\" + str(i) +'/Sprite')
@@ -74,3 +83,151 @@ position = Vector2( 56, 80 )
 [node name="Goal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 49, -22 )
 nextLevelPath = "res://Scenes/GameLevels/Level_7.tscn"
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="Caverna = Meta" parent="Blocks" instance=ExtResource( 5 )]
+position = Vector2( 16, 24 )
+
+[node name="Haiiro = vc" parent="Blocks" instance=ExtResource( 6 )]
+position = Vector2( -32, 0 )
+
+[node name="Parede = Pare" parent="Blocks" instance=ExtResource( 7 )]
+position = Vector2( -32, 0 )
+
+[node name="Help" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 8 )
+
+[node name="Help" type="Control" parent="Help"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="ColorRect" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.2, 0.207843, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Var" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVar" type="Label" parent="Help/Help/HBoxContainer/Var"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "
+Define qual é o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Var"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 254.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Var/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 157.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "  - Haiiro 
+
+  - Parede
+
+  - Caverna "
+
+[node name="Haiiro" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 108 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 9 )
+hframes = 17
+vframes = 15
+frame = 186
+
+[node name="Bandeira" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+visible = false
+position = Vector2( 216, 280 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+hframes = 20
+vframes = 10
+frame = 176
+
+[node name="Caverna" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 218, 228 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+hframes = 20
+vframes = 10
+frame = 19
+
+[node name="Parede1" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 258, 164 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+hframes = 20
+vframes = 10
+frame = 83
+
+[node name="Parede2" type="Sprite" parent="Help/Help/HBoxContainer/Var"]
+position = Vector2( 186, 164 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+hframes = 20
+vframes = 10
+frame = 85
+
+[node name="Value" type="VBoxContainer" parent="Help/Help/HBoxContainer"]
+margin_left = 642.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WhatVal" type="Label" parent="Help/Help/HBoxContainer/Value"]
+margin_right = 638.0
+margin_bottom = 93.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "
+ Define o que vai acontecer com o objeto
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Help/Help/HBoxContainer/Value"]
+margin_top = 97.0
+margin_right = 638.0
+margin_bottom = 286.0
+
+[node name="Level Things" type="Label" parent="Help/Help/HBoxContainer/Value/HBoxContainer"]
+margin_right = 638.0
+margin_bottom = 189.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "  - Voce: O que vai ser controlado
+
+  - Pare: Nao pode ser atravessado
+
+  - Meta: Ao entrar dentro a fase sera 
+  concluida"

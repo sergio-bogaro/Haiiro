@@ -44,6 +44,8 @@ func _on_OptionButton_mouse_entered():
 func _on_ContinueButton_pressed():
 	Fade.sceneFadeMenu(currentLevel, get_tree().current_scene.name)
 	SoundPlayer.startSound()
+	MusicPlayer.menuMusicPause()
+	MusicPlayer.levelMusicPlay()
 
 func _on_ContinueButton_mouse_entered():
 	if $VBoxContainer/HBoxContainer/ContainerButtons/ContinueButton.disabled == false:
